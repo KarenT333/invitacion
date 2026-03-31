@@ -4,47 +4,82 @@
   <meta charset="UTF-8">
   <title>Invitación</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(circle, #1a1a1a, #000);
-      color: #C0C0C0;
-      text-align: center;
-      font-family: "Cinzel", serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  
+ <style>
+  body {
+    margin: 0;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    color: #E5E5E5;
+    text-align: center;
+    font-family: "Cinzel", serif;
+  }
 
-    .pantalla {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+  .pantalla {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    h1 {
-      font-size: 2.5em;
-      text-shadow: 0 0 10px rgba(255,255,255,0.3);
-    }
+  h1 {
+    font-size: 2.8em;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(255,255,255,0.25);
+    margin-bottom: 10px;
+  }
 
-    .vino {
-      color: #5A0F2E;
-      font-size: 1.2em;
-    }
+  .vino {
+    color: #6b112f;
+    font-size: 1.3em;
+    margin-bottom: 30px;
+  }
 
-    button {
-      background: linear-gradient(45deg, #999, #eee);
-      border: none;
-      padding: 12px 25px;
-      cursor: pointer;
-      margin-top: 20px;
-      font-size: 1em;
-    }
+  p {
+    margin: 10px 0;
+    font-size: 1.1em;
+  }
 
-    #contenido {
-      display: none;
-      padding: 40px;
+  button {
+    background: linear-gradient(145deg, #bbb, #eee);
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.4);
+  }
+
+  #contenido {
+    display: none;
+    padding: 50px 20px;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
-  </style>
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #contador {
+    margin-top: 20px;
+    font-size: 1.3em;
+    color: #C0C0C0;
+  }
+</style>
 </head>
 
 <body>
