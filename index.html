@@ -4,125 +4,126 @@
   <meta charset="UTF-8">
   <title>Invitación</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
-  
- <style>
-  body {
-    margin: 0;
-    background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
-    color: #E5E5E5;
-    text-align: center;
-    font-family: "Cinzel", serif;
-  }
+  <!-- FUENTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  .pantalla {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
+      color: #E5E5E5;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+    }
 
-  h1 {
-    font-size: 2.8em;
-    letter-spacing: 2px;
-    text-shadow: 0 0 12px rgba(255,255,255,0.25);
-    margin-bottom: 10px;
-    font-family: "Playfair Display", serif;
-  }
+    /* PANTALLA INICIAL */
+    .pantalla {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-  .vino {
-    color: #6b112f;
-    font-size: 1.3em;
-    margin-bottom: 30px;
-  }
+    /* SECCIONES */
+    .seccion {
+      padding: 60px 20px;
+    }
 
-  p {
-    margin: 10px 0;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.2em;
-  }
+    h1 {
+      font-size: 2.8em;
+      letter-spacing: 2px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.25);
+      font-family: "Playfair Display", serif;
+      margin-bottom: 10px;
+    }
 
-  button {
-    background: linear-gradient(145deg, #bbb, #eee);
-    color: #000;
-    border: none;
-    padding: 12px 30px;
-    cursor: pointer;
-    font-size: 1em;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
+    h2 {
+      font-family: "Playfair Display", serif;
+      margin-bottom: 20px;
+    }
 
-  button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255,255,255,0.4);
-  }
+    #nombre {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5em;
+    }
 
-  #contenido {
-    display: none;
-    padding: 50px 20px;
-    animation: fadeIn 2s ease forwards;
-  }
-   #nombre {
-  font-family: "Great Vibes", cursive;
-  font-size: 2.5em;
-  color: #E5E5E5;
-   }
+    p {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
 
-  @keyframes fadeIn {
-    from {
+    button {
+      background: linear-gradient(145deg, #bbb, #eee);
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+
+    #contenido {
+      display: none;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    #contador {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #C0C0C0;
+    }
+
+    /* BOTÓN FLOTANTE */
+    #btnConfirmar {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+
+      background: rgba(255,255,255,0.1);
+      color: #E5E5E5;
+
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 10px 18px;
+
+      font-family: "Playfair Display", serif;
+      font-size: 0.9em;
+
+      border-radius: 5px;
+      backdrop-filter: blur(5px);
+
+      cursor: pointer;
+      transition: all 0.3s ease;
+
       opacity: 0;
-      transform: translateY(20px);
+      pointer-events: none;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    #btnConfirmar:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.05);
     }
-  }
 
-  #contador {
-    margin-top: 20px;
-    font-size: 1.3em;
-    color: #C0C0C0;
-  }
-
-  #btnConfirmar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  
-    background: rgba(255,255,255,0.1);
-    color: #E5E5E5;
-  
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 10px 18px;
-  
-    font-family: "Playfair Display", serif;
-    font-size: 0.9em;
-  
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
-  
-    cursor: pointer;
-  
-    transition: all 0.3s ease;
-  }
-
-   #btnConfirmar:hover {
-  background: rgba(255,255,255,0.2);
-  transform: scale(1.05);
-   }
-   #btnConfirmar {
-  opacity: 0;
-  pointer-events: none;
-   }
-   
-</style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 
 <body>
-
 
 <!-- 1. ENTRADA -->
 <section id="inicio" class="pantalla">
@@ -130,16 +131,14 @@
   <button onclick="abrir()">Abrir invitación</button>
 </section>
 
-<!-- CONTENIDO GENERAL -->
-<div id="contenido" style="display:none;">
+<!-- CONTENIDO -->
+<div id="contenido">
 
-  <!-- 2. PRESENTACIÓN + CONTADOR -->
+  <!-- 2. PRESENTACIÓN -->
   <section class="seccion">
     <h1 id="nombre"></h1>
     <p>Tenemos el honor de invitarte a celebrar este momento tan especial con nosotros</p>
-    
     <p id="contador"></p>
-
   </section>
 
   <!-- 3. EVENTO -->
@@ -150,7 +149,7 @@
     <p>📍 Recepción: Salón Ejemplo</p>
   </section>
 
-  <!-- 4. PADRES Y PADRINOS -->
+  <!-- 4. PADRES -->
   <section class="seccion">
     <p>Con la bendición de nuestros padres</p>
     <p>Padres del novio</p>
@@ -200,63 +199,55 @@
 
 </div>
 
+<!-- BOTÓN FLOTANTE -->
+<button id="btnConfirmar" onclick="irConfirmacion()">
+  Ir a confirmación
+</button>
+
 <script>
-  // LISTA DE INVITADOS
   const invitados = {
     "a1": "Ana López",
     "b2": "Luis Martínez"
   };
 
-  // OBTENER ID
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  let nombre = "Invitado";
-
-  if(invitados[id]){
-    nombre = invitados[id];
-  }
+  let nombre = invitados[id] || "Invitado";
 
   document.getElementById("saludo").textContent = "Querido/a " + nombre;
   document.getElementById("nombre").textContent = nombre;
 
-
-  // Cuenta regresiva
   const fecha = new Date("2026-11-20");
 
   setInterval(() => {
     const ahora = new Date();
     const diff = fecha - ahora;
-
     const dias = Math.floor(diff / (1000*60*60*24));
+
     document.getElementById("contador").textContent =
       dias + " días para el evento";
   }, 1000);
 
+  function abrir(){
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
 
-function abrir(){
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("contenido").style.display = "block";
-  const btn = document.getElementById("btnConfirmar");
-  btn.style.opacity = "1";
-  btn.style.pointerEvents = "auto";
-}
+    const btn = document.getElementById("btnConfirmar");
+    btn.style.opacity = "1";
+    btn.style.pointerEvents = "auto";
+  }
 
-function irConfirmacion(){
-  document.getElementById("confirmacion").scrollIntoView({
-    behavior: "smooth"
-  });
-}
+  function irConfirmacion(){
+    document.getElementById("confirmacion").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
 
-function confirmar(){
-  alert("Aquí irá Firebase 😏");
-}
-  
+  function confirmar(){
+    alert("Aquí irá Firebase 😏");
+  }
 </script>
 
-
-  <button id="btnConfirmar" onclick="irConfirmacion()">
-  Confirmar
-</button>
 </body>
 </html>
