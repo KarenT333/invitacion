@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle, #1a1a1a, #000);
+      color: #C0C0C0;
+      text-align: center;
+      font-family: "Cinzel", serif;
+    }
+
+    .pantalla {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .vino {
+      color: #5A0F2E;
+      font-size: 1.2em;
+    }
+
+    button {
+      background: linear-gradient(45deg, #999, #eee);
+      border: none;
+      padding: 12px 25px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 1em;
+    }
+
+    #contenido {
+      display: none;
+      padding: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Pantalla inicial -->
+<div class="pantalla" id="inicio">
+  <h1 id="saludo">Invitación</h1>
+  <button onclick="abrir()">Abrir invitación</button>
+</div>
+
+<!-- Contenido -->
+<div id="contenido">
+  <h1 id="nombre"></h1>
+  <p class="vino">Estás cordialmente invitado</p>
+
+  <p>📅 20 de Noviembre 2026</p>
+  <p>📍 Salón estilo castillo</p>
+
+  <p id="contador"></p>
+
+  <button onclick="confirmar()">Confirmar asistencia</button>
+</div>
+
+<script>
+  // LISTA DE INVITADOS
+  const invitados = {
+    "a1": "Ana López",
+    "b2": "Luis Martínez"
+  };
+
+  // OBTENER ID
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  let nombre = "Invitado";
+
+  if(invitados[id]){
+    nombre = invitados[id];
+  }
+
+  document.getElementById("saludo").textContent = "Querido/a " + nombre;
+  document.getElementById("nombre").textContent = nombre;
+
+  function abrir(){
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+  }
+
+  // Cuenta regresiva
+  const fecha = new Date("2026-11-20");
+
+  setInterval(() => {
+    const ahora = new Date();
+    const diff = fecha - ahora;
+
+    const dias = Math.floor(diff / (1000*60*60*24));
+    document.getElementById("contador").textContent =
+      dias + " días para el evento";
+  }, 1000);
+
+  function confirmar(){
+    alert("Aquí conectaremos Firebase después 😏");
+  }
+</script>
+
+</body>
+</html>
