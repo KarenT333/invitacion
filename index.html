@@ -91,23 +91,82 @@
 
 <body>
 
-<!-- Pantalla inicial -->
-<div class="pantalla" id="inicio">
-  <h1 id="saludo">Invitación</h1>
+
+<!-- 1. ENTRADA -->
+<section id="inicio" class="pantalla">
+  <h1 id="saludo">Querido/a Invitado</h1>
   <button onclick="abrir()">Abrir invitación</button>
-</div>
+</section>
 
-<!-- Contenido -->
-<div id="contenido">
-  <h1 id="nombre"></h1>
-  <p class="vino">Estás cordialmente invitado</p>
+<!-- CONTENIDO GENERAL -->
+<div id="contenido" style="display:none;">
 
-  <p>📅 20 de Noviembre 2026</p>
-  <p>📍 Salón estilo castillo</p>
+  <!-- 2. PRESENTACIÓN + CONTADOR -->
+  <section class="seccion">
+    <h1 id="nombre"></h1>
+    <p>Tenemos el honor de invitarte a celebrar este momento tan especial con nosotros</p>
+    
+    <p id="contador"></p>
 
-  <p id="contador"></p>
+    <button onclick="irConfirmacion()">Ir a confirmación</button>
+  </section>
 
-  <button onclick="confirmar()">Confirmar asistencia</button>
+  <!-- 3. EVENTO -->
+  <section class="seccion">
+    <h2>Evento</h2>
+    <p>📍 Ceremonia: Iglesia Ejemplo</p>
+    <p>🕰 Hora: 5:00 PM</p>
+    <p>📍 Recepción: Salón Ejemplo</p>
+  </section>
+
+  <!-- 4. PADRES Y PADRINOS -->
+  <section class="seccion">
+    <p>Con la bendición de nuestros padres</p>
+    <p>Padres del novio</p>
+    <p>Padres de la novia</p>
+
+    <p>y en compañía de nuestros padrinos de velación</p>
+    <p>Nombres de padrinos</p>
+  </section>
+
+  <!-- 5. PROGRAMA -->
+  <section class="seccion">
+    <h2>Programa</h2>
+    <p>Ceremonia</p>
+    <p>Recepción</p>
+    <p>Cena</p>
+    <p>Baile</p>
+  </section>
+
+  <!-- 6. UBICACIÓN -->
+  <section class="seccion">
+    <h2>Ubicación</h2>
+    <button>Ver ceremonia</button>
+    <button>Ver recepción</button>
+  </section>
+
+  <!-- 7. DETALLES -->
+  <section class="seccion">
+    <h2>Detalles</h2>
+    <p>Código de vestimenta: Formal</p>
+    <p>Colores reservados: Vino, negro</p>
+    <p>Mesa de regalos: Próximamente</p>
+  </section>
+
+  <!-- 8. EXTRAS -->
+  <section class="seccion">
+    <h2>Extras</h2>
+    <p>Canción sugerida: ...</p>
+    <p>Instagram: ...</p>
+  </section>
+
+  <!-- 9. CONFIRMACIÓN -->
+  <section id="confirmacion" class="seccion">
+    <h2>Confirmación</h2>
+    <p>Por favor confirma tu asistencia</p>
+    <button onclick="confirmar()">Confirmar asistencia</button>
+  </section>
+
 </div>
 
 <script>
@@ -130,10 +189,6 @@
   document.getElementById("saludo").textContent = "Querido/a " + nombre;
   document.getElementById("nombre").textContent = nombre;
 
-  function abrir(){
-    document.getElementById("inicio").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
-  }
 
   // Cuenta regresiva
   const fecha = new Date("2026-11-20");
@@ -147,9 +202,22 @@
       dias + " días para el evento";
   }, 1000);
 
-  function confirmar(){
-    alert("Aquí conectaremos Firebase después 😏");
-  }
+
+function abrir(){
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("contenido").style.display = "block";
+}
+
+function irConfirmacion(){
+  document.getElementById("confirmacion").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function confirmar(){
+  alert("Aquí irá Firebase 😏");
+}
+  
 </script>
 
 </body>
