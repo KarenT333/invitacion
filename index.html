@@ -113,6 +113,10 @@
   background: rgba(255,255,255,0.2);
   transform: scale(1.05);
    }
+   #btnConfirmar {
+  opacity: 0;
+  pointer-events: none;
+   }
    
 </style>
 </head>
@@ -233,6 +237,9 @@
 function abrir(){
   document.getElementById("inicio").style.display = "none";
   document.getElementById("contenido").style.display = "block";
+  const btn = document.getElementById("btnConfirmar");
+  btn.style.opacity = "1";
+  btn.style.pointerEvents = "auto";
 }
 
 function irConfirmacion(){
