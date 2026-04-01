@@ -39,6 +39,24 @@
       margin-bottom: 10px;
     }
 
+    #inicio h1 {
+      margin-bottom: 20px;
+    }
+    
+    #inicio button {
+      margin-top: 20px;
+      background: transparent;
+      color: #E5E5E5;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 12px 25px;
+      font-family: "Playfair Display", serif;
+      transition: all 0.3s ease;
+    }
+    #inicio button:hover {
+      background: rgba(255,255,255,0.1);
+      transform: scale(1.05);
+    }
+
     h2 {
       font-size: clamp(1.6rem, 5vw, 2.2rem);
       font-family: "Playfair Display", serif;
@@ -249,7 +267,7 @@
 
   let nombre = invitados[id] || "Invitado";
 
-  document.getElementById("saludo").textContent = "Querido/a " + nombre;
+  document.getElementById("saludo").textContent = "Para: " + nombre + " es un placer compartir contigo este momento especial";
   document.getElementById("nombre").textContent = nombre;
 
   const fecha = new Date("2026-11-20");
