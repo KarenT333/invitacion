@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
+    /* BASE */
     body {
       margin: 0;
       background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
@@ -17,20 +18,7 @@
       font-family: "Cormorant Garamond", serif;
     }
 
-    /* PANTALLA INICIAL */
-    .pantalla {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    /* SECCIONES */
-    .seccion {
-      padding: 60px 20px;
-    }
-
+    /* TIPOGRAFÍA */
     h1 {
       font-size: clamp(2.2rem, 6vw, 3rem);
       letter-spacing: 2px;
@@ -39,33 +27,10 @@
       margin-bottom: 10px;
     }
 
-    #inicio h1 {
-      margin-bottom: 20px;
-    }
-    
-    #inicio button {
-      margin-top: 20px;
-      background: transparent;
-      color: #E5E5E5;
-      border: 1px solid rgba(255,255,255,0.4);
-      padding: 12px 25px;
-      font-family: "Playfair Display", serif;
-      transition: all 0.3s ease;
-    }
-    #inicio button:hover {
-      background: rgba(255,255,255,0.1);
-      transform: scale(1.05);
-    }
-
     h2 {
       font-size: clamp(1.6rem, 5vw, 2.2rem);
       font-family: "Playfair Display", serif;
       margin-bottom: 20px;
-    }
-
-    #nombre {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(2.5rem, 8vw, 3rem);
     }
 
     p {
@@ -73,6 +38,32 @@
       font-size: clamp(1.1rem, 4vw, 1.3rem);
     }
 
+    #nombre {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2.5rem, 8vw, 3rem);
+    }
+
+    /* LAYOUT */
+    .pantalla {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .seccion {
+      padding: 60px 20px;
+    }
+
+    #contenido {
+      display: none;
+      padding-top: 20px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    /* BOTONES GENERALES */
     button {
       background: linear-gradient(145deg, #bbb, #eee);
       color: #000;
@@ -89,12 +80,25 @@
       box-shadow: 0 0 15px rgba(255,255,255,0.4);
     }
 
-    #contenido {
-      display: none;
-      animation: fadeIn 2s ease forwards;
-      padding-top: 20px;
+    /* BOTÓN DE ENTRADA (override elegante) */
+    #inicio h1 {
+      margin-bottom: 20px;
     }
 
+    #inicio button {
+      margin-top: 20px;
+      background: transparent;
+      color: #E5E5E5;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 12px 25px;
+      font-family: "Playfair Display", serif;
+    }
+
+    #inicio button:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* CONTADOR */
     #contador {
       margin-top: 20px;
       font-size: 1.3em;
@@ -106,31 +110,30 @@
       position: fixed;
       bottom: 12px;
       right: 12px;
-    
+
       background: rgba(255,255,255,0.08);
       color: #E5E5E5;
-    
+
       border: 1px solid rgba(255,255,255,0.2);
-    
+
       padding: 6px 12px;
       font-size: 0.7rem;
-    
+
       border-radius: 4px;
-    
       backdrop-filter: blur(4px);
-    
+
       cursor: pointer;
       transition: all 0.3s ease;
-    
+
       opacity: 0;
       pointer-events: none;
     }
 
     #btnConfirmar:hover {
       background: rgba(255,255,255,0.2);
-      transform: scale(1.05);
     }
 
+    /* ANIMACIÓN */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -142,58 +145,56 @@
       }
     }
 
+    /* RESPONSIVE */
     @media (max-width: 600px) {
-    .seccion {
-      padding: 40px 15px;
-    }
-  
-    button {
-      width: 90%;
-      max-width: 300px;
-    }
-  
-    #btnConfirmar {
-      right: 10px;
-      bottom: 10px;
-      font-size: 0.8rem;
-      padding: 5px 10px;
-      width: 40%;
-    }
-      
-    p {
-    font-size: 1.2rem;
-    }
+      .seccion {
+        padding: 40px 15px;
+      }
 
-    h1 {
-    font-size: 2.3rem;
-    }
+      button {
+        width: 90%;
+        max-width: 300px;
+      }
 
-    h2 {
-    font-size: 1.7rem;
-    }
+      #btnConfirmar {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- 1. ENTRADA -->
+<!-- ENTRADA -->
 <section id="inicio" class="pantalla">
-  <h1 id="saludo">Querido/a Invitado</h1>
+  <h1 id="saludo">Invitado</h1>
   <button onclick="abrir()">Abrir invitación</button>
 </section>
 
 <!-- CONTENIDO -->
 <div id="contenido">
 
-  <!-- 2. PRESENTACIÓN -->
   <section class="seccion">
     <h1 id="nombre"></h1>
     <p>Tenemos el honor de invitarte a celebrar este momento tan especial con nosotros</p>
     <p id="contador"></p>
   </section>
 
-  <!-- 3. EVENTO -->
   <section class="seccion">
     <h2>Evento</h2>
     <p>📍 Ceremonia: Iglesia Ejemplo</p>
@@ -201,17 +202,14 @@
     <p>📍 Recepción: Salón Ejemplo</p>
   </section>
 
-  <!-- 4. PADRES -->
   <section class="seccion">
     <p>Con la bendición de nuestros padres</p>
     <p>Padres del novio</p>
     <p>Padres de la novia</p>
-
     <p>y en compañía de nuestros padrinos de velación</p>
     <p>Nombres de padrinos</p>
   </section>
 
-  <!-- 5. PROGRAMA -->
   <section class="seccion">
     <h2>Programa</h2>
     <p>Ceremonia</p>
@@ -220,14 +218,12 @@
     <p>Baile</p>
   </section>
 
-  <!-- 6. UBICACIÓN -->
   <section class="seccion">
     <h2>Ubicación</h2>
     <button>Ver ceremonia</button>
     <button>Ver recepción</button>
   </section>
 
-  <!-- 7. DETALLES -->
   <section class="seccion">
     <h2>Detalles</h2>
     <p>Código de vestimenta: Formal</p>
@@ -235,14 +231,12 @@
     <p>Mesa de regalos: Próximamente</p>
   </section>
 
-  <!-- 8. EXTRAS -->
   <section class="seccion">
     <h2>Extras</h2>
     <p>Canción sugerida: ...</p>
     <p>Instagram: ...</p>
   </section>
 
-  <!-- 9. CONFIRMACIÓN -->
   <section id="confirmacion" class="seccion">
     <h2>Confirmación</h2>
     <p>Por favor confirma tu asistencia</p>
@@ -267,7 +261,9 @@
 
   let nombre = invitados[id] || "Invitado";
 
-  document.getElementById("saludo").textContent = "Es un placer compartir este momento especial: " + nombre + "";
+  document.getElementById("saludo").innerHTML =
+    "Para:<br>" + nombre;
+
   document.getElementById("nombre").textContent = nombre;
 
   const fecha = new Date("2026-11-20");
