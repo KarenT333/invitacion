@@ -270,6 +270,12 @@
 </button>
 
 <script>
+
+  window.addEventListener("load", () => {
+  document.querySelector(".izquierda").style.transform = "translateZ(0)";
+  document.querySelector(".derecha").style.transform = "translateZ(0)";
+});
+  
   const invitados = {
     "a1": "Ana López",
     "b2": "Luis Martínez"
