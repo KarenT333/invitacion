@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    /* BASE */
     body {
       margin: 0;
       background: radial-gradient(circle at center, #2a2a2a 0%, #000 80%);
@@ -18,27 +17,11 @@
       font-family: "Cormorant Garamond", serif;
     }
 
-    /* TIPOGRAFÍA */
     h1 {
       font-size: clamp(2.2rem, 6vw, 3rem);
       font-family: "Playfair Display", serif;
     }
 
-    h2 {
-      font-size: clamp(1.6rem, 5vw, 2.2rem);
-      font-family: "Playfair Display", serif;
-    }
-
-    p {
-      font-size: clamp(1.1rem, 4vw, 1.3rem);
-    }
-
-    #nombre {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(2.5rem, 8vw, 3rem);
-    }
-
-    /* LAYOUT */
     .pantalla {
       min-height: 100vh;
       display: flex;
@@ -47,17 +30,6 @@
       flex-direction: column;
     }
 
-    .seccion {
-      padding: 60px 20px;
-    }
-
-    #contenido {
-      display: none;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    /* BOTONES */
     button {
       background: transparent;
       color: #E5E5E5;
@@ -66,36 +38,18 @@
       cursor: pointer;
     }
 
-    #contador {
-      margin-top: 20px;
-      color: #C0C0C0;
-    }
-
-    /* BOTÓN FLOTANTE */
-    #btnConfirmar {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      font-size: 0.7rem;
-      padding: 5px 10px;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* ===== PORTÓN ===== */
+    /* PORTÓN */
     #porton {
       position: fixed;
       width: 100%;
       height: 100%;
       display: flex;
       z-index: 999;
-      pointer-events: none;
     }
 
     .puerta {
       width: 50%;
       height: 100%;
-
       background: linear-gradient(
         90deg,
         #0a0a0a 0%,
@@ -104,33 +58,18 @@
         #1a1a1a 80%,
         #0a0a0a 100%
       );
-
       border: 1px solid rgba(255,255,255,0.08);
-
-      /* textura hierro */
-      background-image:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.05),
-          rgba(255,255,255,0.05) 2px,
-          transparent 2px,
-          transparent 8px
-        );
-
       transition: transform 2s ease;
     }
 
     .izquierda {
       transform-origin: left;
-      box-shadow: inset -10px 0 20px rgba(0,0,0,0.8);
     }
 
     .derecha {
       transform-origin: right;
-      box-shadow: inset 10px 0 20px rgba(0,0,0,0.8);
     }
 
-    /* línea central */
     #porton::after {
       content: "";
       position: absolute;
@@ -139,120 +78,31 @@
       left: 50%;
       transform: translateX(-50%);
       background: rgba(255,255,255,0.15);
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      p { font-size: 1.2rem; }
-      h1 { font-size: 2.3rem; }
-      h2 { font-size: 1.7rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- PORTÓN -->
+<!-- PORTÓN -->
 <div id="porton">
   <div class="puerta izquierda"></div>
   <div class="puerta derecha"></div>
 </div>
 
 <!-- ENTRADA -->
-<section id="inicio" class="pantalla">
-  <h1 id="saludo">Invitado</h1>
+<section class="pantalla">
+  <h1>Invitado</h1>
   <button onclick="abrir()">Abrir invitación</button>
 </section>
 
-
-
-
-<!-- CONTENIDO -->
-<div id="contenido">
-
-  <section class="seccion">
-    <h1 id="nombre"></h1>
-    <p>Tenemos el honor de invitarte a celebrar este momento tan especial</p>
-    <p id="contador"></p>
-  </section>
-
-  <section class="seccion">
-    <h2>Evento</h2>
-    <p>📍 Iglesia Ejemplo</p>
-    <p>🕰 5:00 PM</p>
-  </section>
-
-  <section id="confirmacion" class="seccion">
-    <h2>Confirmación</h2>
-    <button>Confirmar asistencia</button>
-  </section>
-
-</div>
-
-<!-- BOTÓN -->
-<button id="btnConfirmar" onclick="irConfirmacion()">
-  Confirmar
-</button>
-
 <script>
-const invitados = {
-  "a1": "Ana López",
-  "b2": "Luis Martínez"
-};
-
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-
-let nombre = invitados[id] || "Invitado";
-
-document.getElementById("saludo").innerHTML = "Para:<br>" + nombre;
-document.getElementById("nombre").textContent = nombre;
-
-// contador
-const fecha = new Date("2026-11-20");
-
-setInterval(() => {
-  const diff = fecha - new Date();
-  const dias = Math.floor(diff / (1000*60*60*24));
-  document.getElementById("contador").textContent =
-    dias + " días para el evento";
-}, 1000);
-
-// ABRIR PORTÓN
 function abrir(){
   const izq = document.querySelector(".izquierda");
   const der = document.querySelector(".derecha");
-  const porton = document.getElementById("porton");
-  const inicio = document.getElementById("inicio");
-  const contenido = document.getElementById("contenido");
-  const btn = document.getElementById("btnConfirmar");
 
-  // animación
   izq.style.transform = "translateX(-100%)";
   der.style.transform = "translateX(100%)";
-
-  // mostrar contenido
-  contenido.style.display = "block";
-  setTimeout(() => {
-    contenido.style.opacity = "1";
-  }, 200);
-
-  // quitar portón
-  setTimeout(() => {
-    porton.remove();
-    inicio.style.display = "none";
-  }, 2000);
-
-  // botón flotante
-  btn.style.opacity = "1";
-  btn.style.pointerEvents = "auto";
-}
-
-function irConfirmacion(){
-  document.getElementById("confirmacion").scrollIntoView({
-    behavior: "smooth"
-  });
 }
 </script>
 
