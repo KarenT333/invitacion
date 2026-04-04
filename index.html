@@ -21,7 +21,7 @@
     /* TIPOGRAFÍA */
     h1 {
       font-size: clamp(2.2rem, 6vw, 3rem);
-      letter-spacing: 2px;
+      /*letter-spacing: 2px; */
       text-shadow: 0 0 12px rgba(255,255,255,0.25);
       font-family: "Playfair Display", serif;
       margin-bottom: 10px;
@@ -31,6 +31,12 @@
       font-size: clamp(1.6rem, 5vw, 2.2rem);
       font-family: "Playfair Display", serif;
       margin-bottom: 20px;
+    }
+    h1, h2 {
+      letter-spacing: 3px;
+    }
+    #saludo {
+      opacity: 0.8;
     }
 
     p {
@@ -86,7 +92,11 @@
       margin-top: 20px;
       background: transparent;
       color: #E5E5E5;
-      border: 1px solid rgba(255,255,255,0.4);
+
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 10px 22px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
 
       #inicio h2, #inicio button {
