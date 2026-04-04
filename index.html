@@ -159,25 +159,30 @@
           width: 50%;
           height: 100%;
           border: none;
+          position: relative;
         
           background-image: url("puertas.png");
-          background-size: cover; /* importante */
+          background-size: 100% 100%; /* importante */
 
           background-repeat: no-repeat;
         
           transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
         
           backface-visibility: hidden;
+          
         }
         
         .izquierda {
           clip-path: inset(0 50% 0 0);
           transform-origin: left;
+           margin-right: -1px;
         }
         
         .derecha {
           clip-path: inset(0 0 0 50%);
           transform-origin: right;
+          margin-left: -1px;
+          
         }
 
         #inicio {
@@ -320,7 +325,7 @@
     const btn = document.getElementById("btnConfirmar");
     btn.style.opacity = "1";
     btn.style.pointerEvents = "auto";
-  }, 2000);
+  }, 1200);
 }
 
   function irConfirmacion(){
