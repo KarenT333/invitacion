@@ -12,7 +12,7 @@
     /* BASE */
     body {
       margin: 0;
-      background: radial-gradient(circle at center, #2a2a2a 0%, #000 80%);
+      background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
       color: #E5E5E5;
       text-align: center;
       font-family: "Cormorant Garamond", serif;
@@ -21,15 +21,20 @@
     /* TIPOGRAFÍA */
     h1 {
       font-size: clamp(2.2rem, 6vw, 3rem);
+      letter-spacing: 2px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.25);
       font-family: "Playfair Display", serif;
+      margin-bottom: 10px;
     }
 
     h2 {
       font-size: clamp(1.6rem, 5vw, 2.2rem);
       font-family: "Playfair Display", serif;
+      margin-bottom: 20px;
     }
 
     p {
+      margin: 10px 0;
       font-size: clamp(1.1rem, 4vw, 1.3rem);
     }
 
@@ -45,6 +50,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      padding: 20px;
     }
 
     .seccion {
@@ -53,109 +59,126 @@
 
     #contenido {
       display: none;
-      opacity: 0;
-      transition: opacity 1s ease;
+      padding-top: 20px;
+      animation: fadeIn 2s ease forwards;
     }
 
-    /* BOTONES */
+    /* BOTONES GENERALES */
     button {
+      background: linear-gradient(145deg, #bbb, #eee);
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+
+    /* BOTÓN DE ENTRADA (override elegante) */
+    #inicio h1 {
+      margin-bottom: 20px;
+    }
+
+    #inicio button {
+      margin-top: 20px;
       background: transparent;
       color: #E5E5E5;
       border: 1px solid rgba(255,255,255,0.4);
       padding: 12px 25px;
-      cursor: pointer;
+      font-family: "Playfair Display", serif;
     }
 
+    #inicio button:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* CONTADOR */
     #contador {
       margin-top: 20px;
+      font-size: 1.3em;
       color: #C0C0C0;
     }
 
     /* BOTÓN FLOTANTE */
     #btnConfirmar {
       position: fixed;
-      bottom: 10px;
-      right: 10px;
+      bottom: 12px;
+      right: 12px;
+
+      background: rgba(255,255,255,0.08);
+      color: #E5E5E5;
+
+      border: 1px solid rgba(255,255,255,0.2);
+
+      padding: 6px 12px;
       font-size: 0.7rem;
-      padding: 5px 10px;
+
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+
+      cursor: pointer;
+      transition: all 0.3s ease;
+
       opacity: 0;
       pointer-events: none;
     }
 
-    /* ===== PORTÓN ===== */
-    #porton {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      z-index: 999;
+    #btnConfirmar:hover {
+      background: rgba(255,255,255,0.2);
     }
 
-    .puerta {
-      width: 50%;
-      height: 100%;
-
-      background: linear-gradient(
-        90deg,
-        #0a0a0a 0%,
-        #1a1a1a 20%,
-        #2a2a2a 50%,
-        #1a1a1a 80%,
-        #0a0a0a 100%
-      );
-
-      border: 1px solid rgba(255,255,255,0.08);
-
-      background-image:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.05),
-          rgba(255,255,255,0.05) 2px,
-          transparent 2px,
-          transparent 8px
-        );
-
-      transition: transform 2s ease;
-    }
-
-    .izquierda {
-      transform-origin: left;
-      box-shadow: inset -10px 0 20px rgba(0,0,0,0.8);
-    }
-
-    .derecha {
-      transform-origin: right;
-      box-shadow: inset 10px 0 20px rgba(0,0,0,0.8);
-    }
-
-    /* línea central */
-    #porton::after {
-      content: "";
-      position: absolute;
-      width: 3px;
-      height: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255,255,255,0.15);
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    /* ANIMACIÓN */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
-      p { font-size: 1.2rem; }
-      h1 { font-size: 2.3rem; }
-      h2 { font-size: 1.7rem; }
+      .seccion {
+        padding: 40px 15px;
+      }
+
+      button {
+        width: 90%;
+        max-width: 300px;
+      }
+
+      #btnConfirmar {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
 
 <body>
-
-<!-- PORTÓN -->
-<div id="porton">
-  <div class="puerta izquierda"></div>
-  <div class="puerta derecha"></div>
-</div>
 
 <!-- ENTRADA -->
 <section id="inicio" class="pantalla">
@@ -168,87 +191,110 @@
 
   <section class="seccion">
     <h1 id="nombre"></h1>
-    <p>Tenemos el honor de invitarte a celebrar este momento tan especial</p>
+    <p>Tenemos el honor de invitarte a celebrar este momento tan especial con nosotros</p>
     <p id="contador"></p>
   </section>
 
   <section class="seccion">
     <h2>Evento</h2>
-    <p>📍 Iglesia Ejemplo</p>
-    <p>🕰 5:00 PM</p>
+    <p>📍 Ceremonia: Iglesia Ejemplo</p>
+    <p>🕰 Hora: 5:00 PM</p>
+    <p>📍 Recepción: Salón Ejemplo</p>
+  </section>
+
+  <section class="seccion">
+    <p>Con la bendición de nuestros padres</p>
+    <p>Padres del novio</p>
+    <p>Padres de la novia</p>
+    <p>y en compañía de nuestros padrinos de velación</p>
+    <p>Nombres de padrinos</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Programa</h2>
+    <p>Ceremonia</p>
+    <p>Recepción</p>
+    <p>Cena</p>
+    <p>Baile</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Ubicación</h2>
+    <button>Ver ceremonia</button>
+    <button>Ver recepción</button>
+  </section>
+
+  <section class="seccion">
+    <h2>Detalles</h2>
+    <p>Código de vestimenta: Formal</p>
+    <p>Colores reservados: Vino, negro</p>
+    <p>Mesa de regalos: Próximamente</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Extras</h2>
+    <p>Canción sugerida: ...</p>
+    <p>Instagram: ...</p>
   </section>
 
   <section id="confirmacion" class="seccion">
     <h2>Confirmación</h2>
-    <button>Confirmar asistencia</button>
+    <p>Por favor confirma tu asistencia</p>
+    <button onclick="confirmar()">Confirmar asistencia</button>
   </section>
 
 </div>
 
-<!-- BOTÓN -->
+<!-- BOTÓN FLOTANTE -->
 <button id="btnConfirmar" onclick="irConfirmacion()">
-  Confirmar
+  Ir a confirmación
 </button>
 
 <script>
-const invitados = {
-  "a1": "Ana López",
-  "b2": "Luis Martínez"
-};
+  const invitados = {
+    "a1": "Ana López",
+    "b2": "Luis Martínez"
+  };
 
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
 
-let nombre = invitados[id] || "Invitado";
+  let nombre = invitados[id] || "Invitado";
 
-document.getElementById("saludo").innerHTML = "Para:<br>" + nombre;
-document.getElementById("nombre").textContent = nombre;
+  document.getElementById("saludo").innerHTML =
+    "Para:<br>" + nombre;
 
-// contador
-const fecha = new Date("2026-11-20");
+  document.getElementById("nombre").textContent = nombre;
 
-setInterval(() => {
-  const diff = fecha - new Date();
-  const dias = Math.floor(diff / (1000*60*60*24));
-  document.getElementById("contador").textContent =
-    dias + " días para el evento";
-}, 1000);
+  const fecha = new Date("2026-11-20");
 
-// ABRIR PORTÓN
-function abrir(){
-  const izq = document.querySelector(".izquierda");
-  const der = document.querySelector(".derecha");
-  const porton = document.getElementById("porton");
-  const inicio = document.getElementById("inicio");
-  const contenido = document.getElementById("contenido");
-  const btn = document.getElementById("btnConfirmar");
+  setInterval(() => {
+    const ahora = new Date();
+    const diff = fecha - ahora;
+    const dias = Math.floor(diff / (1000*60*60*24));
 
-  // animación
-  izq.style.transform = "translateX(-100%)";
-  der.style.transform = "translateX(100%)";
+    document.getElementById("contador").textContent =
+      dias + " días para el evento";
+  }, 1000);
 
-  // mostrar contenido
-  setTimeout(() => {
-    contenido.style.display = "block";
-    contenido.style.opacity = "1";
-  }, 500);
+  function abrir(){
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
 
-  // quitar portón y entrada
-  setTimeout(() => {
-    porton.style.display = "none";
-    inicio.style.display = "none";
-  }, 2000);
+    const btn = document.getElementById("btnConfirmar");
+    btn.style.opacity = "1";
+    btn.style.pointerEvents = "auto";
+  }
 
-  // botón flotante
-  btn.style.opacity = "1";
-  btn.style.pointerEvents = "auto";
-}
+  function irConfirmacion(){
+    document.getElementById("confirmacion").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
 
-function irConfirmacion(){
-  document.getElementById("confirmacion").scrollIntoView({
-    behavior: "smooth"
-  });
-}
+  function confirmar(){
+    alert("Aquí irá Firebase 😏");
+  }
 </script>
 
 </body>
