@@ -321,29 +321,32 @@
   }, 1000);
 
   function abrir(){
-    const izq = document.querySelector(".izquierda");
-    const der = document.querySelector(".derecha");
+  const izq = document.querySelector(".izquierda");
+  const der = document.querySelector(".derecha");
 
-    izq.style.transform = "translateX(-100%)";
-    der.style.transform = "translateX(100%)";
+  // abrir puertas
+  izq.style.transform = "translateX(-100%)";
+  der.style.transform = "translateX(100%)";
 
-    setTimeout(() => {
-      document.getElementById("porton").style.display = "none";
-      document.getElementById("inicio").style.display = "none";
+  // mostrar contenido
+  const contenido = document.getElementById("contenido");
+  contenido.style.display = "block";
 
-      const contenido = document.getElementById("contenido");
-      contenido.style.display = "block";
+  setTimeout(() => {
+    contenido.style.opacity = "1";
+  }, 200);
 
-      setTimeout(() => {
-        contenido.style.opacity = "1";
-      }, 100);
+  // ocultar portón completamente
+  setTimeout(() => {
+    document.getElementById("porton").style.display = "none";
+    document.getElementById("inicio").style.display = "none";
+  }, 2200);
 
-      const btn = document.getElementById("btnConfirmar");
-      btn.style.opacity = "1";
-      btn.style.pointerEvents = "auto";
-
-    }, 2200);
-  }
+  // mostrar botón
+  const btn = document.getElementById("btnConfirmar");
+  btn.style.opacity = "1";
+  btn.style.pointerEvents = "auto";
+}
 
   function irConfirmacion(){
     document.getElementById("confirmacion").scrollIntoView({
