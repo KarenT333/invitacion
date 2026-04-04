@@ -155,7 +155,7 @@
           width: 50%;
           height: 100%;
         
-          background-image: url("puerta.png");
+          background-image: url("puertas.png");
           background-size: 200% 100%; /* importante */
           background-repeat: no-repeat;
         
@@ -177,6 +177,7 @@
         #inicio {
           position: relative;
           overflow: hidden;
+          perspective: 1200px;
         }
     
   </style>
@@ -295,8 +296,9 @@
   const derecha = document.querySelector(".derecha");
 
   // abrir puertas
-  izquierda.style.transform = "rotateY(-100deg)";
-  derecha.style.transform = "rotateY(100deg)";
+  izquierda.style.transform = "rotateY(-120deg)";
+  derecha.style.transform = "rotateY(120deg)";
+    
 
   // después de abrir, mostrar contenido
   setTimeout(() => {
