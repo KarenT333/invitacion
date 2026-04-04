@@ -89,7 +89,6 @@
       height: 100%;
       display: flex;
       z-index: 999;
-      pointer-events: none;
     }
 
     .puerta {
@@ -107,7 +106,6 @@
 
       border: 1px solid rgba(255,255,255,0.08);
 
-      /* textura hierro */
       background-image:
         repeating-linear-gradient(
           90deg,
@@ -153,7 +151,7 @@
 
 <body>
 
-  <!-- PORTÓN -->
+<!-- PORTÓN -->
 <div id="porton">
   <div class="puerta izquierda"></div>
   <div class="puerta derecha"></div>
@@ -164,9 +162,6 @@
   <h1 id="saludo">Invitado</h1>
   <button onclick="abrir()">Abrir invitación</button>
 </section>
-
-
-
 
 <!-- CONTENIDO -->
 <div id="contenido">
@@ -233,14 +228,14 @@ function abrir(){
   der.style.transform = "translateX(100%)";
 
   // mostrar contenido
-  contenido.style.display = "block";
   setTimeout(() => {
+    contenido.style.display = "block";
     contenido.style.opacity = "1";
-  }, 200);
+  }, 500);
 
-  // quitar portón
+  // quitar portón y entrada
   setTimeout(() => {
-    porton.remove();
+    porton.style.display = "none";
     inicio.style.display = "none";
   }, 2000);
 
