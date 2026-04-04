@@ -59,11 +59,12 @@
 
     #contenido {
       display: none;
+      opacity: 0;
       padding-top: 20px;
-      animation: fadeIn 2s ease forwards;
+      transition: opacity 1.5s ease;
     }
 
-    /* BOTONES GENERALES */
+    /* BOTONES */
     button {
       background: linear-gradient(145deg, #bbb, #eee);
       color: #000;
@@ -80,17 +81,12 @@
       box-shadow: 0 0 15px rgba(255,255,255,0.4);
     }
 
-    /* BOTÓN DE ENTRADA (override elegante) */
-    #inicio h1 {
-      margin-bottom: 20px;
-    }
-
+    /* BOTÓN INICIO */
     #inicio button {
       margin-top: 20px;
       background: transparent;
       color: #E5E5E5;
       border: 1px solid rgba(255,255,255,0.4);
-      padding: 12px 25px;
       font-family: "Playfair Display", serif;
     }
 
@@ -133,16 +129,57 @@
       background: rgba(255,255,255,0.2);
     }
 
-    /* ANIMACIÓN */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* PORTÓN */
+    #porton {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      display: flex;
+    }
+
+    .puerta {
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, #000 0%, #111 40%, #000 100%);
+      transition: transform 2.2s cubic-bezier(0.7, 0, 0.2, 1);
+    }
+
+    .puerta::after {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.05) 2px,
+        transparent 2px,
+        transparent 8px
+      );
+      opacity: 0.2;
+    }
+
+    .izquierda {
+      transform-origin: left;
+    }
+
+    .derecha {
+      transform-origin: right;
+    }
+
+    /* línea central */
+    #porton::after {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
 
     /* RESPONSIVE */
@@ -175,58 +212,17 @@
         font-size: 1.7rem;
       }
     }
-
-        #porton {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 999;
-    
-      display: flex;
-    }
-    
-    .puerta {
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, #000, #111);
-      transition: transform 1.8s ease;
-    }
-    
-    /* ligera textura */
-    .puerta::after {
-      content: "";
-      display: block;
-      height: 100%;
-      width: 100%;
-      background: repeating-linear-gradient(
-        90deg,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.05) 2px,
-        transparent 2px,
-        transparent 8px
-      );
-      opacity: 0.2;
-    }
-    
-    .izquierda {
-      transform-origin: left;
-    }
-    
-    .derecha {
-      transform-origin: right;
-    }
   </style>
 </head>
 
 <body>
 
+<!-- PORTÓN -->
 <div id="porton">
   <div class="puerta izquierda"></div>
   <div class="puerta derecha"></div>
 </div>
-  
+
 <!-- ENTRADA -->
 <section id="inicio" class="pantalla">
   <h1 id="saludo">Invitado</h1>
@@ -292,7 +288,7 @@
 
 </div>
 
-<!-- BOTÓN FLOTANTE -->
+<!-- BOTÓN -->
 <button id="btnConfirmar" onclick="irConfirmacion()">
   Ir a confirmación
 </button>
@@ -325,12 +321,28 @@
   }, 1000);
 
   function abrir(){
-    document.getElementById("inicio").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
+    const izq = document.querySelector(".izquierda");
+    const der = document.querySelector(".derecha");
 
-    const btn = document.getElementById("btnConfirmar");
-    btn.style.opacity = "1";
-    btn.style.pointerEvents = "auto";
+    izq.style.transform = "translateX(-100%)";
+    der.style.transform = "translateX(100%)";
+
+    setTimeout(() => {
+      document.getElementById("porton").style.display = "none";
+      document.getElementById("inicio").style.display = "none";
+
+      const contenido = document.getElementById("contenido");
+      contenido.style.display = "block";
+
+      setTimeout(() => {
+        contenido.style.opacity = "1";
+      }, 100);
+
+      const btn = document.getElementById("btnConfirmar");
+      btn.style.opacity = "1";
+      btn.style.pointerEvents = "auto";
+
+    }, 2200);
   }
 
   function irConfirmacion(){
@@ -342,25 +354,6 @@
   function confirmar(){
     alert("Aquí irá Firebase 😏");
   }
-
-    function abrir(){
-  const izq = document.querySelector(".izquierda");
-  const der = document.querySelector(".derecha");
-
-  izq.style.transform = "translateX(-100%)";
-  der.style.transform = "translateX(100%)";
-
-  setTimeout(() => {
-    document.getElementById("porton").style.display = "none";
-    document.getElementById("inicio").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
-
-    const btn = document.getElementById("btnConfirmar");
-    btn.style.opacity = "1";
-    btn.style.pointerEvents = "auto";
-  }, 1800);
-}
-  
 </script>
 
 </body>
