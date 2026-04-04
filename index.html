@@ -51,6 +51,7 @@
       align-items: center;
       flex-direction: column;
       padding: 20px;
+      
     }
 
     .seccion {
@@ -152,6 +153,8 @@
         }
         
         .puerta {
+          will-change: transform;
+          transform: translateZ(0);
           width: 50%;
           height: 100%;
         
@@ -159,7 +162,7 @@
           background-size: 200% 100%; /* importante */
           background-repeat: no-repeat;
         
-          transition: transform 2s ease;
+          transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
         
           backface-visibility: hidden;
         }
@@ -192,7 +195,7 @@
 
   
   <h2 id="saludo">Invitado</h2>
-  <button onclick="abrir()">Abrir invitación</button>
+  <button onclick="abrir()"  style="touch-action: manipulation;">Abrir invitación</button>
 
 
    <!-- PUERTAS -->
@@ -296,8 +299,8 @@
   const derecha = document.querySelector(".derecha");
 
   // abrir puertas
-  izquierda.style.transform = "rotateY(-120deg)";
-  derecha.style.transform = "rotateY(120deg)";
+  izquierda.style.transform = "rotateY(-95deg)";
+  derecha.style.transform = "rotateY(95deg)";
     
 
   // después de abrir, mostrar contenido
