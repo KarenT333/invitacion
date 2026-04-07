@@ -163,14 +163,16 @@
           z-index: 1;
         }
           #puertas::before {
+            
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 60%);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 65%);
             z-index: -1;
+            transition: background 1.8s ease;
           }
         #puertas.abierto::before {
-          background: radial-gradient(circle at center, rgba(255,255,255,0.12), transparent 60%);
+          background: radial-gradient(circle at center, rgba(255,255,255,0.18), transparent 60%);
           transition: background 1.5s ease;
         }
         
@@ -336,11 +338,11 @@
   const izquierda = document.querySelector(".izquierda");
   const derecha = document.querySelector(".derecha");
 
+    document.getElementById("puertas").classList.add("abierto");
+
   // abrir puertas
   izquierda.style.transform = "rotateY(-95deg)";
   derecha.style.transform = "rotateY(95deg)";
-
-   document.getElementById("puertas").classList.add("abierto");
 
   // después de abrir, mostrar contenido
   setTimeout(() => {
