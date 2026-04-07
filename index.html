@@ -13,7 +13,7 @@
     /* BASE */
     body {
       margin: 0;
-      background: radial-gradient(circle at center, #222 0%, #000 80%);
+      background: radial-gradient(circle at center, #2a2a2a 0%, #000 70%);
       color: #E5E5E5;
       text-align: center;
       font-family: "Cormorant Garamond", serif;
@@ -162,6 +162,13 @@
           display: flex;
           z-index: 1;
         }
+          #puertas::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 60%);
+            z-index: -1;
+          }
         
         .puerta {
           will-change: transform;
@@ -181,7 +188,7 @@
         
           backface-visibility: hidden;
 
-          filter: brightness(0.9) contrast(1.05); 
+          filter: brightness(0.92) contrast(1.08);
           
         }
         
