@@ -7,11 +7,10 @@
 
   <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
-
-  <!-- PRELOAD IMAGEN -->
-  <link rel="preload" as="image" href="puertas3.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="puertas3.webp">
 
   <style>
+    /* BASE */
     body {
       margin: 0;
       background: radial-gradient(circle at center, #222 0%, #000 80%);
@@ -20,8 +19,10 @@
       font-family: "Cormorant Garamond", serif;
     }
 
+    /* TIPOGRAFÍA */
     h1 {
       font-size: clamp(2.2rem, 6vw, 3rem);
+      /*letter-spacing: 2px; */
       text-shadow: 0 0 12px rgba(255,255,255,0.25);
       font-family: "Playfair Display", serif;
       margin-bottom: 10px;
@@ -31,9 +32,10 @@
       font-size: clamp(1.6rem, 5vw, 2.2rem);
       font-family: "Playfair Display", serif;
       margin-bottom: 20px;
+    }
+    h1, h2 {
       letter-spacing: 3px;
     }
-
     #saludo {
       opacity: 0.8;
     }
@@ -48,6 +50,7 @@
       font-size: clamp(2.5rem, 8vw, 3rem);
     }
 
+    /* LAYOUT */
     .pantalla {
       min-height: 100vh;
       display: flex;
@@ -55,17 +58,20 @@
       align-items: center;
       flex-direction: column;
       padding: 20px;
+      
     }
 
     .seccion {
       padding: 60px 20px;
     }
 
+    /* CONTENIDO OCULTO */
     #contenido {
       display: none;
       padding-top: 20px;
     }
 
+    /* BOTONES */
     button {
       background: linear-gradient(145deg, #bbb, #eee);
       color: #000;
@@ -82,14 +88,19 @@
       box-shadow: 0 0 15px rgba(255,255,255,0.4);
     }
 
+    /* BOTÓN INICIAL */
     #inicio button {
       margin-top: 20px;
       background: transparent;
       color: #E5E5E5;
+
       border: 1px solid rgba(255,255,255,0.3);
       padding: 10px 22px;
       font-size: 0.9rem;
       letter-spacing: 1px;
+    }
+
+      #inicio h2, #inicio button {
       position: relative;
       z-index: 2;
     }
@@ -97,33 +108,40 @@
     #inicio button:hover {
       background: rgba(255,255,255,0.1);
     }
+    
 
+    /* CONTADOR */
     #contador {
       margin-top: 20px;
       font-size: 1.3em;
       color: #C0C0C0;
     }
 
+    /* BOTÓN FLOTANTE */
     #btnConfirmar {
       position: fixed;
       bottom: 12px;
       right: 12px;
+
       background: rgba(255,255,255,0.08);
       color: #E5E5E5;
       border: 1px solid rgba(255,255,255,0.2);
+
       padding: 6px 12px;
       font-size: 0.7rem;
       border-radius: 4px;
+
       cursor: pointer;
+
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.6s ease;
     }
 
     #btnConfirmar:hover {
       background: rgba(255,255,255,0.2);
     }
 
+    /* RESPONSIVE */
     @media (max-width: 600px) {
       .seccion {
         padding: 40px 15px;
@@ -135,87 +153,150 @@
       }
     }
 
-    #puertas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      perspective: 1200px;
-    }
+        #puertas {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          z-index: 1;
+        }
+        
+        .puerta {
+          will-change: transform;
+          transform: translateZ(0);
+          background-position: center;
+          width: 50%;
+          height: 100%;
+          border: none;
+          position: relative;
+        
+          background-image: url("puertas3.webp");
+          background-size: 200% 100%; /* importante */
 
-    #puertas.loaded {
-      opacity: 1;
-    }
+          background-repeat: no-repeat;
+        
+          transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        
+          backface-visibility: hidden;
 
-    .puerta {
-      width: 50%;
-      height: 100%;
-      background-image: url("puertas3.webp");
-      background-size: 200% 100%;
-      background-repeat: no-repeat;
-      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-      backface-visibility: hidden;
-      will-change: transform;
-      transform: translateZ(0);
-      filter: brightness(0.92) contrast(1.08);
-    }
+          filter: brightness(0.9) contrast(1.05); 
+          
+        }
+        
+        .izquierda {
+          background-position: left;
+          transform-origin: left;
+        }
+        
+        .derecha {
+          background-position: right;
+          transform-origin: right;
+          
+        }
 
-    .izquierda {
-      background-position: left;
-      transform-origin: left;
-    }
+        #inicio {
+          position: relative;
+          overflow: hidden;
+          perspective: 1200px;
+          background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
+        }
 
-    .derecha {
-      background-position: right;
-      transform-origin: right;
-    }
-
-    #inicio {
-      position: relative;
-      overflow: hidden;
-      perspective: 1200px;
-    }
+    
   </style>
 </head>
 
 <body>
 
+  
+  
+<!-- ENTRADA -->
 <section id="inicio" class="pantalla">
-  <h2 id="saludo">Invitado</h2>
-  <button onclick="abrir()">Abrir invitación</button>
 
+  
+  <h2 id="saludo">Invitado</h2>
+  <button onclick="abrir()"  style="touch-action: manipulation;">Abrir invitación</button>
+
+
+   <!-- PUERTAS -->
   <div id="puertas">
     <div class="puerta izquierda"></div>
     <div class="puerta derecha"></div>
   </div>
 </section>
 
+<!-- CONTENIDO -->
 <main id="contenido">
+
   <section class="seccion">
     <h1 id="nombre"></h1>
     <p>Tenemos el honor de invitarte a celebrar este momento tan especial con nosotros</p>
     <p id="contador"></p>
   </section>
+
+  <section class="seccion">
+    <h2>Evento</h2>
+    <p>📍 Ceremonia: Iglesia Ejemplo</p>
+    <p>🕰 Hora: 5:00 PM</p>
+    <p>📍 Recepción: Salón Ejemplo</p>
+  </section>
+
+  <section class="seccion">
+    <p>Con la bendición de nuestros padres</p>
+    <p>Padres del novio</p>
+    <p>Padres de la novia</p>
+    <p>y en compañía de nuestros padrinos de velación</p>
+    <p>Nombres de padrinos</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Programa</h2>
+    <p>Ceremonia</p>
+    <p>Recepción</p>
+    <p>Cena</p>
+    <p>Baile</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Ubicación</h2>
+    <button>Ver ceremonia</button>
+    <button>Ver recepción</button>
+  </section>
+
+  <section class="seccion">
+    <h2>Detalles</h2>
+    <p>Código de vestimenta: Formal</p>
+    <p>Colores reservados: Vino, negro</p>
+    <p>Mesa de regalos: Próximamente</p>
+  </section>
+
+  <section class="seccion">
+    <h2>Extras</h2>
+    <p>Canción sugerida: ...</p>
+    <p>Instagram: ...</p>
+  </section>
+
+  <section id="confirmacion" class="seccion">
+    <h2>Confirmación</h2>
+    <p>Por favor confirma tu asistencia</p>
+    <button onclick="confirmar()">Confirmar asistencia</button>
+  </section>
+
 </main>
 
+<!-- BOTÓN FLOTANTE -->
 <button id="btnConfirmar" onclick="irConfirmacion()">
   Ir a confirmación
 </button>
 
 <script>
-  // 🔥 Precarga inteligente
-  const img = new Image();
-  img.src = "puertas3.webp";
 
-  img.onload = () => {
-    document.getElementById("puertas").classList.add("loaded");
-  };
-
+  window.addEventListener("load", () => {
+  document.querySelector(".izquierda").style.transform = "translateZ(0)";
+  document.querySelector(".derecha").style.transform = "translateZ(0)";
+});
+  
   const invitados = {
     "a1": "Ana López",
     "b2": "Luis Martínez"
@@ -223,6 +304,7 @@
 
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
+
   const nombre = invitados[id] || "Invitado";
 
   document.getElementById("saludo").innerHTML = "Para:<br>" + nombre;
@@ -234,29 +316,33 @@
     const ahora = new Date();
     const diff = fecha - ahora;
     const dias = Math.floor(diff / (1000*60*60*24));
+
     document.getElementById("contador").textContent =
       dias + " días para el evento";
-  }, 60000);
+  }, 1000);
 
   function abrir(){
-    const izquierda = document.querySelector(".izquierda");
-    const derecha = document.querySelector(".derecha");
+  const izquierda = document.querySelector(".izquierda");
+  const derecha = document.querySelector(".derecha");
 
-    izquierda.style.transform = "rotateY(-95deg)";
-    derecha.style.transform = "rotateY(95deg)";
+  // abrir puertas
+  izquierda.style.transform = "rotateY(-95deg)";
+  derecha.style.transform = "rotateY(95deg)";
+    
 
-    setTimeout(() => {
-      document.getElementById("inicio").style.display = "none";
-      document.getElementById("contenido").style.display = "block";
+  // después de abrir, mostrar contenido
+  setTimeout(() => {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
 
-      const btn = document.getElementById("btnConfirmar");
-      btn.style.opacity = "1";
-      btn.style.pointerEvents = "auto";
-    }, 1200);
-  }
+    const btn = document.getElementById("btnConfirmar");
+    btn.style.opacity = "1";
+    btn.style.pointerEvents = "auto";
+  }, 1200);
+}
 
   function irConfirmacion(){
-    document.getElementById("confirmacion")?.scrollIntoView({
+    document.getElementById("confirmacion").scrollIntoView({
       behavior: "smooth"
     });
   }
