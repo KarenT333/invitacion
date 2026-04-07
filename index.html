@@ -169,6 +169,10 @@
             background: radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 60%);
             z-index: -1;
           }
+        #puertas.abierto::before {
+          background: radial-gradient(circle at center, rgba(255,255,255,0.12), transparent 60%);
+          transition: background 1.5s ease;
+        }
         
         .puerta {
           will-change: transform;
@@ -335,7 +339,8 @@
   // abrir puertas
   izquierda.style.transform = "rotateY(-95deg)";
   derecha.style.transform = "rotateY(95deg)";
-    
+
+   document.getElementById("puertas").classList.add("abierto");
 
   // después de abrir, mostrar contenido
   setTimeout(() => {
