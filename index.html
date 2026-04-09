@@ -272,6 +272,35 @@
           pointer-events: none;
         }
 
+          #fondo::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+          
+            background: radial-gradient(
+              circle at 50% 60%,
+              rgba(255,255,255,0.05),
+              transparent 70%
+            );
+          
+            opacity: 0;
+            animation: nieblaMove 12s ease-in-out infinite alternate;
+            transition: opacity 2s ease;
+          }
+          
+          #fondo.niebla::before {
+            opacity: 1;
+          }
+          
+          @keyframes nieblaMove {
+            from {
+              transform: translateY(0px) scale(1);
+            }
+            to {
+              transform: translateY(-20px) scale(1.05);
+            }
+          }
+
     
   </style>
 </head>
@@ -405,6 +434,7 @@
     const fondo = document.getElementById("fondo");
     fondo.style.opacity = "1";
     fondo.style.transform = "scale(1)";
+    fondo.classList.add("niebla");
     
   // abrir puertas
   izquierda.style.transform = "rotateY(-95deg)";
