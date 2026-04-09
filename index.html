@@ -14,6 +14,7 @@
     /* BASE */
     body {
       margin: 0;
+      overflow: hidden; /* 🔥 esto evita scroll */
       background: radial-gradient(circle at center, #2a2a2a 0%, #000 70%);
       color: #E5E5E5;
       text-align: center;
@@ -282,6 +283,8 @@
               circle at 50% 60%,
               rgba(255,255,255,0.05),
               transparent 70%
+
+               pointer-events: none;
             );
           
             opacity: 0;
@@ -446,6 +449,8 @@
     document.getElementById("inicio").style.display = "none";
     document.getElementById("contenido").style.display = "block";
 
+    document.body.style.overflow = "auto"; // 🔥 activar scroll aquí
+    
     const btn = document.getElementById("btnConfirmar");
     btn.style.opacity = "1";
     btn.style.pointerEvents = "auto";
