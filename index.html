@@ -8,7 +8,7 @@
   <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="puertas3.webp">
-  <link rel="preload" as="image" href="camino.webp">
+  <link rel="preload" as="image" href="camino1.webp">
 
   <style>
     /* BASE */
@@ -221,17 +221,28 @@
           position: absolute;
           inset: 0;
         
-          background-image: url("camino.webp");
+          background-image: url("camino1.webp");
           background-size: cover;
           background-position: center;
         
           opacity: 0;
-          transition: opacity 2s ease;
         
           z-index: 0;
         
-          /* ajuste fino de color */
-          filter: saturate(0.85) brightness(0.95);
+          /* 🎨 ajuste elegante */
+          filter: saturate(0.75) brightness(0.8) contrast(1.08);
+        
+          /* 🎬 efecto cine */
+          transform: scale(1.05);
+          transition: opacity 2s ease, transform 6s ease;
+          
+        }
+        #fondo::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at center, rgba(120,0,30,0.25), transparent 70%);
+          pointer-events: none;
         }
 
     
@@ -359,7 +370,10 @@
     // 🔥 activar luz
   document.getElementById("puertas").classList.add("abierto");
      // 🔥 mostrar fondo
-  document.getElementById("fondo").style.opacity = "1";
+ // document.getElementById("fondo").style.opacity = "1";
+    const fondo = document.getElementById("fondo");
+    fondo.style.opacity = "1";
+    fondo.style.transform = "scale(1)";
     
   // abrir puertas
   izquierda.style.transform = "rotateY(-95deg)";
