@@ -8,6 +8,7 @@
   <!-- FUENTES -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="puertas3.webp">
+  <link rel="preload" as="image" href="camino.webp">
 
   <style>
     /* BASE */
@@ -102,7 +103,7 @@
 
       #inicio h2, #inicio button {
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
 
     #inicio button:hover {
@@ -160,7 +161,7 @@
           width: 100vw;
           height: 100vh;
           display: flex;
-          z-index: 1;
+          z-index: 2;
         }
           #puertas::before {
             
@@ -214,6 +215,23 @@
           overflow: hidden;
           perspective: 1200px;
           background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
+          
+        }
+        #fondo {
+          position: absolute;
+          inset: 0;
+        
+          background-image: url("camino.webp");
+          background-size: cover;
+          background-position: center;
+        
+          opacity: 0;
+          transition: opacity 2s ease;
+        
+          z-index: 0;
+        
+          /* ajuste fino de color */
+          filter: saturate(0.85) brightness(0.95);
         }
 
     
@@ -226,7 +244,7 @@
   
 <!-- ENTRADA -->
 <section id="inicio" class="pantalla">
-
+<div id="fondo"></div>
   
   <h2 id="saludo">Invitado</h2>
   <button onclick="abrir()"  style="touch-action: manipulation;">Abrir invitación</button>
@@ -340,7 +358,9 @@
 
     // 🔥 activar luz
   document.getElementById("puertas").classList.add("abierto");
-
+     // 🔥 mostrar fondo
+  document.getElementById("fondo").style.opacity = "1";
+    
   // abrir puertas
   izquierda.style.transform = "rotateY(-95deg)";
   derecha.style.transform = "rotateY(95deg)";
