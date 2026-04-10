@@ -59,7 +59,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 20px;
+      padding: 0px;
       
     }
 
@@ -244,6 +244,10 @@
           perspective: 1200px;
           background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
           height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
           
         }
         #fondo {
@@ -283,9 +287,9 @@
               circle at 50% 60%,
               rgba(255,255,255,0.05),
               transparent 70%
-
-               pointer-events: none;
             );
+          
+            pointer-events: none;
           
             opacity: 0;
             animation: nieblaMove 12s ease-in-out infinite alternate;
