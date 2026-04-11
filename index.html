@@ -90,13 +90,26 @@
       #inicio.abierto h2 {
         letter-spacing: 10px;
         opacity: 1;
-       transform: translateY(0);
+       transform: translateY(0) scale(1.05);
         
         transform: scale(1.05);
         transition: 1.5s ease;
          
       }
 
+
+
+        #inicio p {
+          opacity: 0;
+          transform: translateY(15px);
+          transition: all 1.5s ease;
+          transition-delay: 0.4s; /* 🔥 aparece después */
+        }
+        
+        #inicio.abierto p {
+          opacity: 0.8; /* tu estilo original */
+          transform: translateY(0) scale(1.02);
+        }
     /* BOTONES */
     button {
       background: linear-gradient(145deg, #bbb, #eee);
