@@ -440,6 +440,19 @@
               animation: respirar 8s ease-in-out infinite alternate;
             }
 
+          #frase {
+            opacity: 0; /* 🔥 oculto al inicio */
+            transform: translateY(15px);
+            font-size: 0.9rem;
+            margin-top: -10px;
+            transition: all 1.5s ease;
+          }
+
+          #inicio.abierto #frase {
+            opacity: 0.7; /* vuelve a tu estilo */
+            transform: translateY(0);
+          }
+
 
             @keyframes brilloGoth {
               from {
@@ -486,9 +499,11 @@
 <div id="fondo"></div>
   
   <h2 id="saludo">Para alguien muy especial</h2>
-  <p style="opacity:0.7; font-size:0.9rem; margin-top:-10px;">
+   <p id="frase">
     Hay momentos que cambian la vida...
   </p>
+
+  
   <button onclick="abrir()"  style="touch-action: manipulation;">Abrir invitación</button>
 
 
