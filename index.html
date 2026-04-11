@@ -99,14 +99,14 @@
 
 
 
-        #inicio p {
+        #inicio p:not(#frase) {
           opacity: 0;
           transform: translateY(15px);
           transition: all 1.5s ease;
           transition-delay: 0.4s; /* 🔥 aparece después */
         }
         
-        #inicio.abierto p {
+        #inicio.abierto  p:not(#frase) {
           opacity: 0.8; /* tu estilo original */
           transform: translateY(0) scale(1.02);
         }
