@@ -353,19 +353,30 @@
           z-index: 0;
         
           /* 🎨 ajuste elegante */
-          filter: saturate(0.75) brightness(0.8) contrast(1.08);
+          /*filter: saturate(0.75) brightness(0.8) contrast(1.08);*/
         
           /* 🎬 efecto cine */
           transform: scale(1.05);
           transition: opacity 2s ease, transform 6s ease;
+           filter: saturate(0.7) brightness(0.75) contrast(1.1);
           
         }
         #fondo::after {
           content: "";
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle at center, rgba(120,0,30,0.35), rgba(0,0,0,0.8));
           pointer-events: none;
+
+          background: 
+            radial-gradient(circle at 20% 80%, rgba(255,180,120,0.18), transparent 45%),
+            radial-gradient(circle at 80% 75%, rgba(255,160,100,0.15), transparent 45%),
+            radial-gradient(circle at 50% 90%, rgba(255,200,150,0.12), transparent 55%),
+            radial-gradient(circle at center, rgba(120,0,30,0.35), rgba(0,0,0,0.85));
+
+        animation: velas 5s infinite ease-in-out alternate;
+
+        opacity: 0; /* 🔥 inicia apagado */
+        transition: opacity 2s ease;
           
         }
 
@@ -388,6 +399,9 @@
           }
           
           #fondo.niebla::before {
+            opacity: 1;
+          }
+          #fondo.niebla::after {
             opacity: 1;
           }
           
@@ -420,6 +434,29 @@
               }
               to {
                 left: 130%;
+              }
+            }
+
+            @keyframes velas {
+              0% {
+                opacity: 0.9;
+                filter: brightness(0.95);
+              }
+              25% {
+                opacity: 1;
+                filter: brightness(1.05);
+              }
+              50% {
+                opacity: 0.85;
+                filter: brightness(0.9);
+              }
+              75% {
+                opacity: 1;
+                filter: brightness(1.1);
+              }
+              100% {
+                opacity: 0.92;
+                filter: brightness(1);
               }
             }
 
