@@ -61,7 +61,7 @@
 
     /* LAYOUT */
     .pantalla {
-      min-height: 100vh;
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -332,6 +332,12 @@
           align-items: center;
           flex-direction: column;
           height: 100dvh; /* 🔥 mejor que 100vh en móvil */
+          max-height: 100dvh; /* 🔥 clave */
+                  
+            padding: 20px; /* 🔥 evita que se corte en móviles */
+            box-sizing: border-box; /* 🔥 IMPORTANTÍSIMO */
+
+          
           
         }
         #fondo {
