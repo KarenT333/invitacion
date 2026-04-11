@@ -14,7 +14,6 @@
     /* BASE */
     body {
       margin: 0;
-      overflow: hidden; /* 🔥 esto evita scroll */
       background: radial-gradient(circle at center, #1a1a1a 0%, #000 75%);
       color: #E5E5E5;
       text-align: center;
@@ -81,9 +80,21 @@
       padding-top: 20px;
     }
 
+
+        #inicio h2 {
+          opacity: 0;
+          transform: translateY(10px);
+          transition: all 1.5s ease;
+        }
+    
       #inicio.abierto h2 {
-        letter-spacing: 6px;
+        letter-spacing: 10px;
+        opacity: 1;
+       transform: translateY(0);
+        
+        transform: scale(1.05);
         transition: 1.5s ease;
+         
       }
 
     /* BOTONES */
@@ -105,6 +116,8 @@
 
     /* BOTÓN INICIAL */
     #inicio button {
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
       margin-top: 30px;
     
       background: rgba(40, 0, 10, 0.6); /* vino casi negro */
@@ -127,6 +140,14 @@
       backdrop-filter: blur(4px);
       
     }
+
+      #inicio button:focus {
+        outline: none;
+      }
+
+      #inicio button:active::before {
+        animation: brilloGoth 1.2s ease forwards;
+      }
 
       /* ✨ capa de brillo metálico */
       /* ✨ brillo metálico gótico (más fino y oscuro) */
@@ -306,11 +327,11 @@
           overflow: hidden;
           perspective: 1200px;
           background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%);
-          height: 100vh;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          height: 100dvh; /* 🔥 mejor que 100vh en móvil */
           
         }
         #fondo {
