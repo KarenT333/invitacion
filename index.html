@@ -81,6 +81,11 @@
       padding-top: 20px;
     }
 
+      #inicio.abierto h2 {
+        letter-spacing: 6px;
+        transition: 1.5s ease;
+      }
+
     /* BOTONES */
     button {
       background: linear-gradient(145deg, #bbb, #eee);
@@ -516,6 +521,10 @@
   const izquierda = document.querySelector(".izquierda");
   const derecha = document.querySelector(".derecha");
 
+
+  // 🔥 ACTIVA EFECTOS DE TEXTO
+  document.getElementById("inicio").classList.add("abierto");
+    
     document.querySelectorAll(".puerta").forEach(p => {
       p.style.filter = "brightness(1) contrast(1.3)";
     });
