@@ -57,11 +57,20 @@
     #nombre {
       font-family: "Great Vibes", cursive;
       font-size: clamp(3rem, 9vw, 4.2rem);
-      color: #b9b3ad;
+       background: linear-gradient(
+          to bottom,
+          #f2f2f2 0%,
+          #cfcfcf 35%,
+          #8f8f8f 55%,
+          #ececec 80%,
+          #b5b5b5 100%
+        );
+      
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      
         text-shadow:
-          0 0 6px rgba(255,255,255,0.18),
-          0 0 18px rgba(180,180,180,0.12),
-          0 0 30px rgba(120,0,30,0.18);
+          0 1px 2px rgba(0,0,0,0.45);
     }
 
     /* LAYOUT */
