@@ -275,6 +275,12 @@
           background: radial-gradient(circle at center, rgba(255,245,230,0.22), transparent 60%);
           transition: background 1.8s ease;
         }
+
+        #puertas.abierto .puerta::after{
+          opacity: 0.75;
+        }
+
+
         
         .puerta {
           will-change: transform;
@@ -316,7 +322,8 @@
             transparent 70%
           );
         
-          opacity: 0.6;
+          opacity: 0.35;
+          transition: opacity 1.8s ease;
           pointer-events: none;
         }
 
@@ -618,9 +625,9 @@
   // 🔥 ACTIVA EFECTOS DE TEXTO
   document.getElementById("inicio").classList.add("abierto");
     
-    document.querySelectorAll(".puerta").forEach(p => {
-      p.style.filter = "brightness(1) contrast(1.3)";
-    });
+    //document.querySelectorAll(".puerta").forEach(p => {
+      //p.style.filter = "brightness(1) contrast(1.3)";
+    //});
 
     // 🔥 activar luz
   document.getElementById("puertas").classList.add("abierto");
