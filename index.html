@@ -89,24 +89,35 @@
 
         width: min(820px, 88%);
         margin: 80px auto;
-        padding: 70px 35px;
+        padding: 70px 40px;
       
         background:
+          radial-gradient(
+            circle at top,
+            rgba(120,0,30,0.18),
+            transparent 60%
+          ),
           linear-gradient(
-            rgba(25,0,8,0.68),
-            rgba(10,0,5,0.76)
+            rgba(25,0,8,0.72),
+            rgba(10,0,5,0.82)
           );
       
         border: 1px solid rgba(180,180,180,0.12);
       
         box-shadow:
-          0 0 30px rgba(0,0,0,0.65),
-          inset 0 0 35px rgba(255,255,255,0.03);
+          0 0 35px rgba(0,0,0,0.7),
+          inset 0 0 45px rgba(255,255,255,0.02);
       
         backdrop-filter: blur(3px);
       
-        overflow: hidden;
+        overflow: visible;
     }
+    
+       .seccion > * {
+        position: relative;
+        z-index: 2;
+      }
+
 
     .seccion::before {
         content: "";
@@ -114,7 +125,7 @@
         inset: 0;
       
         background-image: url("ornamento.webp");
-        background-size: 98% 98%;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: center;
       
@@ -124,7 +135,7 @@
        
       }
 
-
+ 
   
 
     /* CONTENIDO OCULTO */
