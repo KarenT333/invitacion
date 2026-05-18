@@ -85,7 +85,27 @@
     }
 
     .seccion {
-      padding: 60px 20px;
+       position: relative;
+
+        width: min(900px, 88%);
+        margin: 80px auto;
+        padding: 70px 35px;
+      
+        background:
+          linear-gradient(
+            rgba(20,0,5,0.72),
+            rgba(5,0,0,0.82)
+          );
+      
+        border: 1px solid rgba(255,255,255,0.08);
+      
+        box-shadow:
+          0 0 30px rgba(0,0,0,0.65),
+          inset 0 0 35px rgba(255,255,255,0.03);
+      
+        backdrop-filter: blur(3px);
+      
+        overflow: hidden;
     }
 
     /* CONTENIDO OCULTO */
