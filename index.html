@@ -90,6 +90,8 @@
         width: min(820px, 88%);
         margin: 80px auto;
         padding: 70px 40px;
+
+        box-sizing: border-box; /* 🔥 ESTO FALTABA */
       
         background:
           radial-gradient(
@@ -110,7 +112,7 @@
       
         backdrop-filter: blur(3px);
       
-        overflow: visible;
+        overflow: hidden;
     }
     
        .seccion > * {
