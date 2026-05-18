@@ -113,6 +113,13 @@
         backdrop-filter: blur(3px);
       
         overflow: hidden;
+
+
+         transform: translateY(0);
+          transition:
+            transform 0.5s ease,
+            box-shadow 0.5s ease,
+            border-color 0.5s ease;
     }
     
        .seccion > * {
@@ -135,6 +142,34 @@
       
         pointer-events: none;
        
+      }
+
+    .seccion:hover {
+
+        transform: translateY(-4px);
+      
+        border-color: rgba(220,220,220,0.18);
+      
+        box-shadow:
+          0 0 45px rgba(0,0,0,0.78),
+          0 0 18px rgba(120,0,30,0.18),
+          inset 0 0 45px rgba(255,255,255,0.03);
+      
+      }
+
+    .seccion::after {
+        content: "";
+      
+        position: absolute;
+      
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+      
+        border: 1px solid rgba(255,255,255,0.05);
+      
+        pointer-events: none;
       }
 
  
