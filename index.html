@@ -108,6 +108,33 @@
         overflow: hidden;
     }
 
+    .seccion::before, .seccion::after {
+        content: "";
+        position: absolute;
+      
+        width: 140px;
+        height: 140px;
+      
+        background-image: url("ornamento.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+      
+        opacity: 0.16;
+        pointer-events: none;
+      }
+
+    .seccion::before {
+      top: 0;
+      left: 0;
+    }
+
+    .seccion::after {
+      bottom: 0;
+      right: 0;
+    
+      transform: rotate(180deg);
+    }
+
     /* CONTENIDO OCULTO */
     #contenido {
       display: none;
