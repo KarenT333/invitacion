@@ -906,6 +906,24 @@
   function confirmar(){
     alert("Aquí irá Firebase 😏");
   }
+
+
+
+  const fotos = document.querySelectorAll(".foto-pareja");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+  
+  fotos.forEach(foto => {
+    observer.observe(foto);
+  });
 </script>
 
 </body>
