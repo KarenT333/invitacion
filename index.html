@@ -96,6 +96,7 @@
 
         width: min(820px, 88%);
         margin: 80px auto;
+         margin-top: -120px; /* segun eto se pone*/
         padding: 70px 40px;
 
         box-sizing: border-box; /* 🔥 ESTO FALTABA */
@@ -258,6 +259,35 @@
           pointer-events: none;
         }
 
+        .foto-full {
+          position: relative;
+          height: 75vh;
+        
+          background-size: cover;
+          background-position: center;
+        
+          background-attachment: fixed;
+        
+          overflow: hidden;
+        }
+
+          .foto-full::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+          
+            background:
+              linear-gradient(
+                to bottom,
+                rgba(10,0,5,0.9),
+                rgba(10,0,5,0.2),
+                rgba(10,0,5,0.9)
+              );
+          }
+
+          .foto1 {
+            background-image: url("pareja7.webp");
+          }
  
   
 
@@ -794,6 +824,12 @@
   <section class="foto-pareja">
     <img src="pareja9.webp" alt="Pareja">
   </section>
+
+  <section class="foto-full foto1">
+  <div class="overlay">
+    <p>Una historia escrita por el destino</p>
+  </div>
+</section>
 
   <section class="seccion">
     <h2>Ubicación</h2>
