@@ -185,7 +185,7 @@
       }
 
         .superpuesta {
-            margin-top: -120px;
+            margin-top: -140px;
             position: relative;
             z-index: 5;
           }
@@ -274,7 +274,28 @@
           background-attachment: scroll;
         
           overflow: hidden;
+         isolation: isolate;
+          
         }
+
+
+          .foto-full::before{
+              content:"";
+              position:absolute;
+              inset:0;
+            
+              background: inherit;
+              background-size: cover;
+              background-position: center;
+            
+              transform: scale(1.06);
+            
+              animation: cinematicZoom 18s ease-in-out infinite alternate;
+            
+              z-index:-2;
+            }
+
+    
 
           .foto-full::after {
             content: "";
@@ -284,10 +305,13 @@
             background:
               linear-gradient(
                 to bottom,
-                rgba(10,0,5,0.9),
-                rgba(10,0,5,0.2),
-                rgba(10,0,5,0.9)
+                 rgba(5,0,0,0.92),
+                rgba(20,0,10,0.15),
+                rgba(5,0,0,0.95)
+                       
               );
+
+            z-index:-1;
           }
 
           .foto1 {
@@ -793,6 +817,17 @@
             
               text-shadow:
                 0 0 20px rgba(0,0,0,0.8);
+            }
+
+
+        @keyframes cinematicZoom{
+              from{
+                transform: scale(1.06);
+              }
+            
+              to{
+                transform: scale(1.12);
+              }
             }
     
   </style>
