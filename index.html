@@ -267,13 +267,13 @@
 
         .foto-full {
           position: relative;
-            z-index: 1;
           height: 75vh;
+           background-attachment: fixed; /* ← CLAVE: la foto se queda quieta */
         
           background-size: cover;
           background-position: center;
         
-          background-attachment: scroll;
+         /* background-attachment: scroll; */
             overflow: visible;
          
           /*  isolation: isolate; */
@@ -311,6 +311,7 @@
                   rgba(10,0,5,0.02) 35%,
                   rgba(20,0,10,0.55) 72%,
                   rgba(20,0,10,0.98) 100%
+
 
                        
               );
