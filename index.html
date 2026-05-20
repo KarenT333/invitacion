@@ -96,7 +96,6 @@
 
         width: min(820px, 88%);
         margin: 80px auto;
-         margin-top: -120px; /* segun eto se pone*/
         padding: 70px 40px;
 
         box-sizing: border-box; /* 🔥 ESTO FALTABA */
@@ -184,6 +183,12 @@
       
         pointer-events: none;
       }
+
+        .superpuesta {
+            margin-top: -120px;
+            position: relative;
+            z-index: 5;
+          }
 
 
       .foto-pareja {
@@ -763,6 +768,32 @@
               }
             }
 
+
+          .overlay-text {
+              position: absolute;
+              inset: 0;
+            
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            
+              z-index: 3;
+            
+              padding: 40px;
+            }
+            
+            .overlay-text p {
+              font-size: clamp(1.8rem, 4vw, 3rem);
+            
+              font-family: "Great Vibes", cursive;
+            
+              opacity: 0.75;
+            
+              max-width: 700px;
+            
+              text-shadow:
+                0 0 20px rgba(0,0,0,0.8);
+            }
     
   </style>
 </head>
@@ -795,10 +826,11 @@
 <main id="contenido">
 
   <section class="foto-full foto1">
-  <div class="overlay">
+  <div class="overlay-text">
     <p>Una historia escrita por el destino</p>
   </div>
 </section>
+  <section class="seccion superpuesta"></section>
   
   <section class="seccion">
     <h1 id="nombre"></h1>
@@ -830,9 +862,10 @@
   </section>
 
        <section class="foto-full foto3">
-      <div class="overlay">
+      <div class="overlay-text">
       </div>
     </section>
+    <section class="seccion superpuesta"></section>
 
   <section class="seccion">
     <h2>Programa</h2>
@@ -871,11 +904,12 @@
     <img src="pareja8.webp" alt="Pareja">
   </section> -->
 
-   <section class="foto-full foto1">
-      <div class="overlay">
+   <section class="foto-full foto2">
+      <div class="overlay-text">
         <p>Gracias por ser parte de nuestra historia</p>
       </div>
     </section>
+      <section class="seccion superpuesta"></section>
 
   
 
