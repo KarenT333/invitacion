@@ -344,7 +344,16 @@
 
     /* CONTENIDO OCULTO */
     #contenido {
-      display: none;
+     /* display: none;*/
+      /*agregr esto de prueba a contenid para ver si evita la fractura de imagenes*/
+       opacity: 0;
+        visibility: hidden;
+        pointer-events: none;   
+        transition: opacity 1.2s ease;
+
+/*Hasta aqui es la prueba*/
+
+      
       position: relative;
       /*padding-bottom: 20px;*/
       padding-top: 20px;
@@ -1025,7 +1034,12 @@
   // después de abrir, mostrar contenido
   setTimeout(() => {
     document.getElementById("inicio").style.display = "none";
-    document.getElementById("contenido").style.display = "block";
+   // document.getElementById("contenido").style.display = "block";  **tambien quite esto para probar que las imagenes no se hagan zoom**
+
+    const contenido = document.getElementById("contenido"); //agregue prueba de aqui
+    contenido.style.opacity = "1";
+    contenido.style.visibility = "visible";
+    contenido.style.pointerEvents = "auto"; //hasta aqui
 
     document.body.style.overflow = "auto"; // 🔥 activar scroll aquí
     
