@@ -812,9 +812,6 @@
 
 
           .overlay-text {
-
-               flex-direction: column;
-              gap: 20px;
               position: absolute;
               inset: 0;
             
@@ -829,6 +826,9 @@
             
             .overlay-text p {
               font-size: clamp(1.8rem, 4vw, 3rem);
+            
+              font-family: "Great Vibes", cursive;
+            
               opacity: 0.75;
             
               max-width: 700px;
@@ -838,27 +838,8 @@
             }
 
 
-              .contador-tick{
-                 width: min(700px, 90%);
-
-                filter:
-                  drop-shadow(0 0 12px rgba(0,0,0,0.75))
-                  drop-shadow(0 0 18px rgba(120,0,30,0.35));
-              
-                position: relative;
-              
-                margin: 0 auto;
-                overflow: visible;
-                padding-left: 250px;
-
-                
-              }
-
     
   </style>
-
-
-  
 </head>
 
 <body>
@@ -891,44 +872,6 @@
   <section class="foto-full foto1">
   <div class="overlay-text">
     <p>Una historia escrita por el destino</p>
-
-    <!-- Este es el div del contradot -->
-      <div class="contador-tick">
-
-      <script>
-      (function(d, s, id) {
-        var js, pjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//www.tickcounter.com/static/js/loader.js";
-
-        pjs.parentNode.insertBefore(js, pjs);
-      }(document, "script", "tickcounter-sdk"));
-      </script>
-
-      <a
-        data-type="countdown"
-        data-id="10374918"
-        class="tickcounter"
-        style="
-          display:block;
-          width:100%;
-          max-width:700px;
-          height:0;
-          position:relative;
-          padding-bottom:20%;
-          margin:0 auto;
-        "
-        title="My countdown"
-        href="//www.tickcounter.com/">
-      </a>
-
-    </div>
-
-
-    
   </div>
 </section>
 
