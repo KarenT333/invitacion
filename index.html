@@ -817,11 +817,22 @@
             
               display: flex;
               align-items: center;
-              justify-content: center;
+             /* justify-content: center; */
             
               z-index: 3;
             
-              padding: 40px;
+             /* padding: 40px; */
+
+             flex-direction: column;
+              justify-content: flex-start;           
+              padding-top: 60px;
+              padding-inline: 20px;            
+              text-align: center;
+
+
+
+
+            
             }
             
             .overlay-text p {
@@ -863,8 +874,9 @@
               justify-content:center;
               gap: clamp(12px, 3vw, 35px);
             
-              margin-top: 10vh;
+             /* margin-top: 10vh; */
               flex-wrap: wrap;
+                   width: 100%;
             }
             
             .tiempo{
@@ -923,6 +935,26 @@
               opacity: 0.7;
             }
 
+    @media (max-width: 600px){
+
+  .overlay-text{
+    padding-top: 40px;
+  }
+
+  .contador-custom{
+    gap: 10px;
+  }
+
+  .tiempo{
+    width: 72px;
+    height: 72px;
+  }
+
+  .tiempo span{
+    font-size: 1.7rem;
+  }
+
+}
     
 
 
