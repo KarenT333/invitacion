@@ -64,7 +64,7 @@
       letter-spacing: 1px;
     }
 
-  /*  #nombre {
+    #nombre {
       font-family: "Great Vibes", cursive;
       font-size: clamp(5rem, 14vw, 7rem);
        background: linear-gradient(
@@ -83,15 +83,30 @@
           0 2px 6px rgba(0,0,0,0.5);
 
     }
-    */
+
+    #nombre-temporal {
+      display: block;
+      font-family: "Great Vibes", cursive;
+    
+      font-size: clamp(5rem, 14vw, 7rem);
+    
+      background: linear-gradient(
+        to bottom,
+        #f2f2f2 0%,
+        #cfcfcf 35%,
+        #8f8f8f 55%,
+        #ececec 80%,
+        #b5b5b5 100%
+      );
+    
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
 
 
-    #nombre {
-  font-size: 6rem !important;
-  color: white !important;
-  background: none !important;
-  -webkit-text-fill-color: white !important;
-}
+
 
     /* LAYOUT */
     .pantalla {
@@ -1164,7 +1179,8 @@
 
   const nombre = invitados[id] || "Invitado";
 
-  document.getElementById("saludo").innerHTML = "Esta velada invoca la presencia de<br>" + nombre;
+ // document.getElementById("saludo").innerHTML = "Esta velada invoca la presencia de<br>" + nombre;
+  document.getElementById("saludo").innerHTML =   "Esta velada invoca la presencia de<br><span id='nombre-temporal'>" + nombre + "</span>";
   document.getElementById("nombre").textContent = nombre;
 
   const fecha = new Date("2026-11-20");
