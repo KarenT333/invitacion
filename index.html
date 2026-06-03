@@ -1185,14 +1185,20 @@
     fondo.classList.add("niebla");
     
   // abrir puertas
-  izquierda.style.transform = "rotateY(-82deg) translateX(-20px)";
-  derecha.style.transform = "rotateY(82deg) translateX(20px)";
+ // izquierda.style.transform = "rotateY(-82deg) translateX(-20px)";
+  // derecha.style.transform = "rotateY(82deg) translateX(20px)";
+
+    setTimeout(() => {
+  izquierda.style.transform =
+    "rotateY(-82deg) translateX(-20px)";
+
+  derecha.style.transform =
+    "rotateY(82deg) translateX(20px)";
+}, 300);
 
 
   // después de abrir, mostrar contenido
-    setTimeout(() => {
-   document.getElementById("inicio").style.opacity = "0";
-}, 1800);
+
   setTimeout(() => {
     document.getElementById("inicio").style.display = "none";
    document.getElementById("contenido").style.display = "block";
