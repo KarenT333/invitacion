@@ -674,6 +674,8 @@
 
           gap: 10px;
 
+          transition: opacity .8s ease;
+
 
           
         }
@@ -1183,6 +1185,9 @@
 
 
   // después de abrir, mostrar contenido
+    setTimeout(() => {
+   document.getElementById("inicio").style.opacity = "0";
+}, 1800);
   setTimeout(() => {
     document.getElementById("inicio").style.display = "none";
    document.getElementById("contenido").style.display = "block";
@@ -1194,7 +1199,7 @@
     const btn = document.getElementById("btnConfirmar");
     btn.style.opacity = "1";
     btn.style.pointerEvents = "auto";
-  }, 2200);
+  }, 2600);
 }
 
   function irConfirmacion(){
