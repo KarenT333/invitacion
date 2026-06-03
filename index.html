@@ -466,6 +466,8 @@
       position: relative;    
       overflow: hidden; /* importante para el brillo */
       backdrop-filter: blur(4px);
+
+      transition: opacity .5s ease;
       
     }
 
@@ -1161,6 +1163,9 @@
   function abrir(){
   const izquierda = document.querySelector(".izquierda");
   const derecha = document.querySelector(".derecha");
+
+     // Ocultar botón al instante
+  document.querySelector("#inicio button").style.opacity = "0";
 
 
   // 🔥 ACTIVA EFECTOS DE TEXTO
