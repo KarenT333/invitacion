@@ -769,9 +769,13 @@
           #frase {
             opacity: 0; /* 🔥 oculto al inicio */
             transform: translateY(15px);
-            font-size: 0.9rem;
-            margin-top: 10px;
+             font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-top: 15px;
             transition: all 1.5s ease;
+
+            max-width: 700px;
+            margin-inline: auto;
+            line-height: 1.3;
           }
 
           #inicio.abierto #frase {
@@ -982,7 +986,7 @@
   
   <h2 id="saludo">Para alguien muy especial</h2>
    <p id="frase">
-    Hay momentos que cambian la vida...
+    Dos almas que se buscaron por una eternidad...
   </p>
 
   
@@ -1001,7 +1005,7 @@
 
   <section class="foto-full foto1">
   <div class="overlay-text">
-    <p>Una historia escrita por el destino</p>
+    <p>Hoy se encuentran para no separarse jamás.</p>
   </div>
 
 
@@ -1208,7 +1212,7 @@
     const btn = document.getElementById("btnConfirmar");
     btn.style.opacity = "1";
     btn.style.pointerEvents = "auto";
-  }, 4100);
+  }, 4500);
 }
 
   function irConfirmacion(){
