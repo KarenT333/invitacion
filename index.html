@@ -1183,17 +1183,6 @@
   document.getElementById("saludo").innerHTML =   "Esta velada invoca la presencia de<br><span id='nombre-temporal'>" + nombre + "</span>";
   document.getElementById("nombre").textContent = nombre;
 
-  const fecha = new Date("2026-11-20");
-
-  setInterval(() => {
-    const ahora = new Date();
-    const diff = fecha - ahora;
-    const dias = Math.floor(diff / (1000*60*60*24));
-
-    document.getElementById("contador").textContent =
-      dias + " días para el evento";
-  }, 60000);
-
   function abrir(){
   const izquierda = document.querySelector(".izquierda");
   const derecha = document.querySelector(".derecha");
