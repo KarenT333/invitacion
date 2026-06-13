@@ -1033,6 +1033,39 @@
     }
 
 
+    .texto-intro{
+        opacity: .7;
+        letter-spacing: 2px;
+        font-size: .95rem;
+        margin-bottom: 25px;
+      }
+      
+      .texto-principal{
+        font-family: "Great Vibes", cursive;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        opacity: .85;
+        margin: 25px 0;
+        line-height: 1.3;
+      }
+
+    .padres-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        margin: 30px 0;
+      }
+      
+      .padres-grid p{
+        margin: 6px 0;
+      }
+      
+      @media (max-width: 600px){
+        .padres-grid{
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+      }
+
     
   </style>
 </head>
@@ -1136,11 +1169,38 @@
 
   
   <section class="seccion superpuesta">
-    <p>Con la bendición de nuestros padres</p>
-    <p>Padres del novio</p>
-    <p>Padres de la novia</p>
-    <p>y en compañía de nuestros padrinos de velación</p>
-    <p>Nombres de padrinos</p>
+<p class="texto-intro">
+    En el umbral de este nuevo capítulo,
+  </p>
+
+  <p class="texto-principal">
+    bajo la protección de quienes han iluminado nuestro camino
+  </p>
+
+  <div class="padres-grid">
+
+    <div>
+      <p><strong>Padres del novio</strong></p>
+      <p>Fernando Ramirez</p>
+      <p>Maria Lilia Flores</p>
+    </div>
+
+    <div>
+      <p><strong>Padres de la novia</strong></p>
+      <p>Ruben Tellez</p>
+      <p>Hyadee Gomez</p>
+    </div>
+
+  </div>
+
+  <p class="texto-principal">
+    y acompañado por quienes guardarán memoria de esta unión
+  </p>
+
+  <div class="padrinos">
+    <p><strong>Padrinos de velación</strong></p>
+    <p>Manuel Torre y Norma</p>
+  </div>
   </section>
 
  
