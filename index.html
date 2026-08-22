@@ -1574,6 +1574,284 @@
   }
 
 }
+
+
+
+
+    /* =========================================
+   DETALLES — VICTORIANO GÓTICO
+========================================= */
+
+.detalles {
+  padding: 75px 40px 85px;
+}
+
+.detalles::before {
+  inset: 20px 18px;
+  background-size: 100% 100%;
+  opacity: 0.30;
+}
+
+.detalles-ornamento,
+.detalles-final {
+  font-family: "Cormorant Garamond", serif;
+  color: rgba(180,180,180,0.55);
+  font-size: 1.7rem;
+  letter-spacing: 5px;
+}
+
+.detalles-ornamento {
+  margin-bottom: 8px;
+}
+
+.detalles h2 {
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+
+
+/* INTRODUCCIÓN */
+
+.detalles-intro {
+  font-family: "Great Vibes", cursive;
+
+  font-size: clamp(1.5rem, 4vw, 2rem);
+
+  opacity: 0.7;
+
+  max-width: 560px;
+
+  margin: 0 auto 55px;
+
+  line-height: 1.35;
+}
+
+
+/* CADA BLOQUE */
+
+.detalle-item {
+  width: min(560px, 90%);
+
+  margin: auto;
+
+  text-align: center;
+}
+
+
+/* PEQUEÑO SÍMBOLO */
+
+.detalle-simbolo {
+  display: block;
+
+  font-size: 0.8rem;
+
+  color: rgba(190,190,190,0.6);
+
+  margin-bottom: 10px;
+}
+
+
+/* TÍTULOS */
+
+.detalle-item h3 {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(1rem, 3vw, 1.2rem);
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  font-weight: 400;
+
+  opacity: 0.8;
+
+  margin: 0 0 15px;
+}
+
+
+/* INFORMACIÓN PRINCIPAL */
+
+.detalle-principal {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+
+  margin: 8px 0;
+
+  letter-spacing: 1px;
+}
+
+
+/* TEXTO SECUNDARIO */
+
+.detalle-secundario {
+  font-size: clamp(1rem, 3vw, 1.15rem);
+
+  opacity: 0.65;
+
+  max-width: 480px;
+
+  margin: 8px auto;
+
+  line-height: 1.45;
+}
+
+
+/* NOMBRE DEL INVITADO */
+
+.detalle-invitado {
+  font-family: "Great Vibes", cursive;
+
+  font-size: clamp(2rem, 5vw, 2.8rem);
+
+  margin: 15px 0 5px;
+
+  background: linear-gradient(
+    to bottom,
+    #f2f2f2 0%,
+    #cfcfcf 35%,
+    #8f8f8f 55%,
+    #ececec 80%,
+    #b5b5b5 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* SEPARADORES */
+
+.detalle-separador {
+  margin: 45px auto;
+
+  color: rgba(180,180,180,0.5);
+
+  font-size: 1.1rem;
+
+  letter-spacing: 5px;
+}
+
+
+/* BOTÓN MESA DE REGALOS */
+
+.btn-detalles {
+  margin-top: 22px;
+
+  background: rgba(40,0,10,0.6);
+
+  color: #E5E5E5;
+
+  border: 1px solid rgba(150,150,150,0.25);
+
+  padding: 12px 28px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1rem;
+
+  letter-spacing: 2px;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(4px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.btn-detalles:hover {
+  background: rgba(65,0,15,0.72);
+
+  border-color: rgba(180,60,80,0.55);
+
+  box-shadow:
+    0 0 12px rgba(120,0,30,0.35),
+    inset 0 0 8px rgba(255,255,255,0.04);
+
+  transform: scale(1.04);
+}
+
+
+/* TEXTO FINAL DE REGALOS */
+
+.regalo-final {
+  margin-top: 20px;
+}
+
+
+/* ORNAMENTO FINAL */
+
+.detalles-final {
+  margin-top: 55px;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+  .detalles {
+    padding: 80px 35px 90px;
+  }
+
+  .detalles::before {
+    inset: 20px 18px;
+    opacity: 0.28;
+  }
+
+  .detalles-intro {
+    font-size: 1.6rem;
+
+    max-width: 320px;
+
+    margin-bottom: 55px;
+  }
+
+  .detalle-item {
+    width: 100%;
+  }
+
+  .detalle-item h3 {
+    font-size: 0.95rem;
+
+    letter-spacing: 2.5px;
+  }
+
+  .detalle-principal {
+    font-size: 1.3rem;
+  }
+
+  .detalle-secundario {
+    font-size: 1.08rem;
+
+    line-height: 1.5;
+  }
+
+  .detalle-invitado {
+    font-size: 2.3rem;
+  }
+
+  .detalle-separador {
+    margin: 48px auto;
+  }
+
+  .btn-detalles {
+    font-size: 1.05rem;
+
+    padding: 13px 30px;
+  }
+
+}
     
 
     
@@ -1897,13 +2175,139 @@
 
   
 
-  <section class="seccion">
-    <h2>Detalles</h2>
-    <p>Código de vestimenta: Formal</p>
-    <p>Colores reservados: Vino, negro</p>
-    <p>Mesa de regalos: Próximamente</p>
-  </section>
+<section class="seccion detalles">
 
+  <div class="detalles-ornamento">❦</div>
+
+  <h2>Detalles</h2>
+
+  <p class="detalles-intro">
+    Para acompañarnos en esta noche, les pedimos tener presentes
+    algunos detalles.
+  </p>
+
+
+  <!-- CÓDIGO DE VESTIMENTA -->
+
+  <div class="detalle-item">
+
+    <span class="detalle-simbolo">✦</span>
+
+    <h3>Código de vestimenta</h3>
+
+    <p class="detalle-principal">
+      Formal
+    </p>
+
+    <p class="detalle-secundario">
+      Opcional: traje o vestido de inspiración victoriana.
+    </p>
+
+  </div>
+
+
+  <div class="detalle-separador">❦</div>
+
+
+  <!-- COLORES RESERVADOS -->
+
+  <div class="detalle-item">
+
+    <span class="detalle-simbolo">✦</span>
+
+    <h3>Colores reservados</h3>
+
+    <p class="detalle-principal">
+      Blanco
+    </p>
+
+    <p class="detalle-secundario">
+      Reservado para la novia.
+    </p>
+
+    <p class="detalle-principal">
+      Vino
+    </p>
+
+    <p class="detalle-secundario">
+      Reservado para las damas.
+    </p>
+
+  </div>
+
+
+  <div class="detalle-separador">❦</div>
+
+
+  <!-- INVITACIÓN PERSONAL -->
+
+  <div class="detalle-item">
+
+    <span class="detalle-simbolo">✦</span>
+
+    <h3>Invitación personal</h3>
+
+    <p class="detalle-secundario">
+      Esta invitación ha sido preparada especialmente para:
+    </p>
+
+    <p
+      class="detalle-invitado"
+      id="detalleInvitado">
+      Invitado
+    </p>
+
+    <p
+      class="detalle-secundario"
+      id="detalleCantidad">
+      Invitados: —
+    </p>
+
+  </div>
+
+
+  <div class="detalle-separador">❦</div>
+
+
+  <!-- REGALOS -->
+
+  <div class="detalle-item">
+
+    <span class="detalle-simbolo">✦</span>
+
+    <h3>Regalos</h3>
+
+    <p class="detalle-secundario">
+      Su presencia es nuestro mejor regalo.
+    </p>
+
+    <p class="detalle-secundario">
+      Si desean acompañarnos con algún detalle,
+      será bienvenido.
+    </p>
+
+    <button
+      class="btn-detalles"
+      onclick="window.open('AQUI_VA_EL_LINK_DE_LA_MESA_DE_REGALOS', '_blank')">
+      Ver mesa de regalos
+    </button>
+
+    <p class="detalle-secundario regalo-final">
+      Un sobre o cualquier otro obsequio
+      será igualmente recibido con cariño.
+    </p>
+
+  </div>
+
+
+  <div class="detalles-final">❦</div>
+
+</section>
+
+
+
+
+  
   <section class="seccion">
     <h2>Extras</h2>
     <p>Canción sugerida: ...</p>
