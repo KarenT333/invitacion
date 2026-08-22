@@ -2819,6 +2819,21 @@ document.getElementById("cantidadInvitados").textContent =
     alert("Aquí irá Firebase 😏");
   }
 
+  function cambiarInvitados(cambio) {
+
+  const nuevaCantidad =
+    cantidadSeleccionada + cambio;
+  if (nuevaCantidad < 1) {
+    return;
+  }
+  if (nuevaCantidad > pasesMaximos) {
+    return;
+  }
+  cantidadSeleccionada = nuevaCantidad;
+  document.getElementById("cantidadInvitados").textContent =
+    cantidadSeleccionada;
+}
+
 
 
   const fotos = document.querySelectorAll(".foto-pareja");
