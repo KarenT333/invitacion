@@ -1365,6 +1365,215 @@
   }
 
 }
+
+    /* =========================================
+   UBICACIÓN — VICTORIANO GÓTICO
+========================================= */
+
+.ubicacion {
+  padding: 70px 40px 80px;
+}
+
+/* Ornamento propio de la sección */
+
+.ubicacion::before {
+  inset: 20px 18px;
+  background-size: 100% 100%;
+  opacity: 0.32;
+}
+
+.ubicacion-ornamento,
+.ubicacion-final {
+  font-family: "Cormorant Garamond", serif;
+  color: rgba(180,180,180,0.55);
+  font-size: 1.7rem;
+  letter-spacing: 5px;
+}
+
+.ubicacion-ornamento {
+  margin-bottom: 8px;
+}
+
+.ubicacion h2 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* Frase */
+
+.ubicacion-intro {
+  font-family: "Great Vibes", cursive;
+
+  font-size: clamp(1.5rem, 4vw, 2rem);
+
+  opacity: 0.7;
+
+  margin: 0 auto 50px;
+
+  line-height: 1.3;
+
+  max-width: 550px;
+}
+
+
+/* CONTENEDOR DE LOS DOS LUGARES */
+
+.ubicacion-destinos {
+  width: min(600px, 90%);
+  margin: auto;
+}
+
+
+/* CADA DESTINO */
+
+.destino {
+  text-align: center;
+}
+
+.destino-tipo {
+  font-family: "Playfair Display", serif;
+
+  font-size: 0.9rem;
+
+  letter-spacing: 4px;
+
+  opacity: 0.7;
+
+  margin-bottom: 10px;
+}
+
+.destino-nombre {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(1.2rem, 3vw, 1.45rem);
+
+  margin: 0 auto 22px;
+
+  line-height: 1.3;
+
+  max-width: 450px;
+}
+
+
+/* BOTÓN MAPA */
+
+.btn-mapa {
+  background: rgba(40,0,10,0.6);
+
+  color: #E5E5E5;
+
+  border: 1px solid rgba(150,150,150,0.25);
+
+  padding: 11px 28px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1rem;
+
+  letter-spacing: 2px;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(4px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* HOVER */
+
+.btn-mapa:hover {
+  background: rgba(65,0,15,0.72);
+
+  border-color: rgba(180,60,80,0.55);
+
+  box-shadow:
+    0 0 12px rgba(120,0,30,0.35),
+    inset 0 0 8px rgba(255,255,255,0.04);
+
+  transform: scale(1.04);
+}
+
+
+/* SEPARADOR ENTRE IGLESIA Y SALÓN */
+
+.destino-separador {
+  margin: 42px auto;
+
+  color: rgba(180,180,180,0.5);
+
+  font-size: 1.1rem;
+
+  letter-spacing: 5px;
+}
+
+
+/* ORNAMENTO FINAL */
+
+.ubicacion-final {
+  margin-top: 50px;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 600px) {
+
+  .ubicacion {
+    padding: 80px 35px 90px;
+  }
+
+  .ubicacion::before {
+    inset: 20px 18px;
+    opacity: 0.30;
+  }
+
+  .ubicacion-intro {
+    font-size: 1.65rem;
+
+    margin-bottom: 55px;
+
+    max-width: 320px;
+  }
+
+  .ubicacion-destinos {
+    width: 100%;
+  }
+
+  .destino-tipo {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+  }
+
+  .destino-nombre {
+    font-size: 1.25rem;
+
+    line-height: 1.4;
+  }
+
+  .btn-mapa {
+    font-size: 1.05rem;
+
+    padding: 12px 30px;
+  }
+
+  .destino-separador {
+    margin: 45px auto;
+  }
+
+  .ubicacion-final {
+    margin-top: 55px;
+  }
+
+}
     
 
     
@@ -1646,12 +1855,47 @@
     </section>
 
 
+  <section class="seccion superpuesta ubicacion">
+  <div class="ubicacion-ornamento">❦</div>
+  <h2>Ubicación</h2>
+  <p class="ubicacion-intro">
+    Los lugares que serán testigos de nuestra historia.
+  </p>
+  <div class="ubicacion-destinos">
+    <div class="destino">
+      <p class="destino-tipo">CEREMONIA</p>
+      <p class="destino-nombre">
+        Parroquia Jesús Divino Maestro
+      </p>
 
-  <section class="seccion superpuesta">
-    <h2>Ubicación</h2>
-    <button>Ver ceremonia</button>
-    <button>Ver recepción</button>
-  </section>
+      <button
+        class="btn-mapa"
+        onclick="window.open('https://maps.app.goo.gl/qramgA1T4vp5ihEE7', '_blank')">
+        Ver mapa
+      </button>
+
+    </div>
+    <div class="destino-separador">❦</div>
+    <div class="destino">
+      <p class="destino-tipo">RECEPCIÓN</p>
+      <p class="destino-nombre">
+        Castillo Real Dumonth
+      </p>
+
+      <button
+        class="btn-mapa"
+        onclick="window.open('https://maps.app.goo.gl/Q6UZUgse1rnNHYGm9', '_blank')">
+        Ver mapa
+      </button>
+
+    </div>
+  </div>
+  <div class="ubicacion-final">❦</div>
+
+    </section>
+
+
+  
 
   <section class="seccion">
     <h2>Detalles</h2>
