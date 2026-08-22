@@ -2735,11 +2735,26 @@
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  const nombre = invitados[id] || "Invitado";
+  const invitado = invitados[id] || {
+  nombre: "Invitado",
+  pases: 1
+    };
+
+ // const nombre = invitados[id] || "Invitado";
+  const nombre = invitado.nombre;
+  const pasesMaximos = invitado.pases;
+
+  let cantidadSeleccionada = 1;
 
  // document.getElementById("saludo").innerHTML = "Esta velada invoca la presencia de<br>" + nombre;
   document.getElementById("saludo").innerHTML =   "Esta velada invoca la presencia de<br><span id='nombre-temporal'>" + nombre + "</span>";
-  document.getElementById("nombre").textContent = nombre;
+ // document.getElementById("nombre").textContent = nombre;
+document.getElementById("nombre").textContent = nombre;
+document.getElementById("confirmacionNombre").textContent = nombre;
+document.getElementById("pasesDisponibles").textContent = pasesMaximos;
+document.getElementById("cantidadInvitados").textContent =
+  cantidadSeleccionada;
+  
 
   function abrir(){
   const izquierda = document.querySelector(".izquierda");
