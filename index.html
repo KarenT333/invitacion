@@ -2632,15 +2632,71 @@
   </p>
 
   <p class="confirmacion-texto">
-    Agradecemos confirmar su asistencia
-    para acompañarnos en este día tan especial.
+    Hemos reservado especialmente para ustedes:
   </p>
+
+
+  <!-- INVITACIÓN PERSONAL -->
+
+  <div class="confirmacion-invitado">
+
+    <p class="confirmacion-label">
+      Invitación a nombre de
+    </p>
+
+    <p id="confirmacionNombre" class="confirmacion-nombre">
+      Invitado
+    </p>
+
+  </div>
+
+
+  <!-- NÚMERO DE INVITADOS -->
+
+  <div class="selector-invitados">
+
+    <p class="confirmacion-label">
+      Número de invitados
+    </p>
+
+    <div class="contador-invitados">
+
+      <button
+        type="button"
+        class="btn-cantidad"
+        onclick="cambiarInvitados(-1)">
+        −
+      </button>
+
+      <span id="cantidadInvitados">
+        1
+      </span>
+
+      <button
+        type="button"
+        class="btn-cantidad"
+        onclick="cambiarInvitados(1)">
+        +
+      </button>
+
+    </div>
+
+    <p class="pases-disponibles">
+      Pases disponibles:
+      <span id="pasesDisponibles">1</span>
+    </p>
+
+  </div>
+
+
+  <!-- CONFIRMAR -->
 
   <button
     class="btn-confirmacion"
     onclick="confirmar()">
     Confirmar asistencia
   </button>
+
 
   <div class="confirmacion-final">❦</div>
 
@@ -2665,8 +2721,15 @@
 });
   
   const invitados = {
-    "a1": "Ana López",
-    "b2": "Luis Martínez"
+    "a1": {
+    nombre: "Ana López",
+    pases: 2
+  },
+
+  "b2": {
+    nombre: "Luis Martínez",
+    pases: 4
+  }
   };
 
   const params = new URLSearchParams(window.location.search);
