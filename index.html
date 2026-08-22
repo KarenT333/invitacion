@@ -1852,6 +1852,33 @@
   }
 
 }
+
+    .botones-regalo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.botones-regalo .btn-detalles {
+  margin-top: 0;
+  min-width: 130px;
+}
+
+@media (max-width: 600px) {
+
+  .botones-regalo {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .botones-regalo .btn-detalles {
+    width: 180px;
+  }
+
+}
     
 
     
