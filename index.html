@@ -1285,7 +1285,7 @@
 @media (max-width: 600px) {
 
   .programa {
-    padding: 80px 20px 90px;
+    padding: 80px 35px 90px;
   }
    .programa h2 {
     font-size: 2rem;
@@ -1298,6 +1298,19 @@
     margin: 0 auto 55px;
     max-width: 320px;
   }
+     .programa::before {
+        inset: 20px 18px;
+        background-size: 100% 100%;
+        opacity: 0.32;
+      }
+
+       .programa h2,
+      .programa-intro,
+      .linea-tiempo,
+      .programa-final {
+        position: relative;
+        z-index: 3;
+      }
 
   .linea-tiempo {
     width: 100%;
