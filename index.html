@@ -1006,13 +1006,11 @@
 
 /* Esta parte esimportante para novios*/
     .nombres-novios {
-  margin-top: 18px;
+   margin-top: 18px;
 
   font-family: "Great Vibes", cursive;
-
-  font-size: clamp(3.5rem, 11vw, 6rem);
-
-  letter-spacing: 3px;
+  font-size: clamp(3rem, 5vw, 5rem);
+  letter-spacing: 4px;
 
   background: linear-gradient(
     to bottom,
@@ -1024,12 +1022,22 @@
   );
 
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
   text-shadow:
     0 2px 6px rgba(0,0,0,0.5);
 
-  opacity: 0.9;
+  opacity: 0.95;
+}
+
+    @media (max-width: 600px){
+
+  .nombres-novios {
+    font-size: clamp(3.5rem, 11vw, 6rem);
+    letter-spacing: 3px;
+  }
+
 }
 
 
