@@ -3227,7 +3227,16 @@ async function confirmar() {
 
   // Verificar si ya confirmó
   if (invitado.confirmado === true) {
-    alert("No se puede confirmar nuevamente. Esta invitación ya ha sido confirmada. Favor de comunicarse por WhatsApp.");
+        alert(
+      "No se puede confirmar nuevamente.\n\n" +
+      "Esta invitación ya ha sido confirmada con:\n" +
+      "Adultos: " + invitado.AsisteA + "\n" +
+      "Niños: " + invitado.AsisteN + "\n" +
+      "Total de asistentes: " +
+      ((invitado.AsisteA || 0) + (invitado.AsisteN || 0)) +
+      "\n\n" +
+      "Si necesitas realizar algún cambio, favor de comunicarte por WhatsApp."
+    );
     return;
   }
 
@@ -3257,7 +3266,12 @@ async function confirmar() {
     invitado.AsisteA = cantidadAdultos;
     invitado.AsisteN = cantidadNinos;
 
-    alert("¡Gracias por confirmar tu asistencia!");
+        alert(
+      "¡Gracias por confirmar tu asistencia!\n\n" +
+      "Adultos confirmados: " + cantidadAdultos + "\n" +
+      "Niños confirmados: " + cantidadNinos + "\n" +
+      "Total de asistentes: " + total
+    );
 
     console.log("Confirmación guardada:", {
       id: id,
