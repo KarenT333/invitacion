@@ -3230,66 +3230,6 @@ function actualizarTotal() {
 
 
 
-//Se cambio para fueran tanto adultos como niños
-
-  function cambiarAdultos(cambio) {
-
-  const adultosMaximos = invitado.adultos || 0;
-
-  const nuevaCantidad =
-    cantidadAdultos + cambio;
-
-  if (nuevaCantidad < 0) {
-    return;
-  }
-
-  if (nuevaCantidad > adultosMaximos) {
-    return;
-  }
-
-  cantidadAdultos = nuevaCantidad;
-
-  document.getElementById("cantidadAdultos").textContent =
-    cantidadAdultos;
-
-  actualizarTotal();
-}
-
-
-function cambiarNinos(cambio) {
-
-  const ninosMaximos = invitado.ninos || 0;
-
-  const nuevaCantidad =
-    cantidadNinos + cambio;
-
-  if (nuevaCantidad < 0) {
-    return;
-  }
-
-  if (nuevaCantidad > ninosMaximos) {
-    return;
-  }
-
-  cantidadNinos = nuevaCantidad;
-
-  document.getElementById("cantidadNinos").textContent =
-    cantidadNinos;
-
-  actualizarTotal();
-}
-
-
-function actualizarTotal() {
-
-  const total =
-    cantidadAdultos + cantidadNinos;
-
-  document.getElementById("totalConfirmar").textContent =
-    total;
-}
-  
-
 
 //Esto es de la foto de pareja
   const fotos = document.querySelectorAll(".foto-pareja");
