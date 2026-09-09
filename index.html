@@ -2186,6 +2186,38 @@
 
   margin-top: 10px;
 }
+
+    .grupo-invitados {
+  margin: 25px auto 35px;
+}
+
+.tipo-invitado {
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-bottom: 10px;
+}
+
+.total-confirmacion {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(180,180,180,0.12);
+}
+
+.total-asistentes {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.total-asistentes strong {
+  color: #eee;
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+}
     
     
 
@@ -2776,40 +2808,119 @@
 
   <!-- NÚMERO DE INVITADOS -->
 
-  <div class="selector-invitados">
-
+ <!--  <div class="selector-invitados">
     <p class="confirmacion-label">
       Número de invitados
     </p>
-
     <div class="contador-invitados">
-
       <button
         type="button"
         class="btn-cantidad"
         onclick="cambiarInvitados(-1)">
         −
       </button>
-
       <span id="cantidadInvitados">
         1
       </span>
-
       <button
         type="button"
         class="btn-cantidad"
         onclick="cambiarInvitados(1)">
         +
       </button>
-
     </div>
-
     <p class="pases-disponibles">
       Pases disponibles:
       <span id="pasesDisponibles">1</span>
     </p>
+  </div>     -->
+
+
+  <div class="selector-invitados">
+
+  <p class="confirmacion-label">¿Quiénes asistirán?</p>
+
+  <!-- ADULTOS -->
+  <div class="grupo-invitados" id="grupoAdultos">
+
+    <p class="tipo-invitado">Adultos</p>
+
+    <div class="contador-invitados">
+      <button
+        type="button"
+        class="btn-cantidad"
+        onclick="cambiarAdultos(-1)">
+        −
+      </button>
+
+      <span id="cantidadAdultos">0</span>
+
+      <button
+        type="button"
+        class="btn-cantidad"
+        onclick="cambiarAdultos(1)">
+        +
+      </button>
+    </div>
+
+    <p class="pases-disponibles">
+      Disponibles:
+      <span id="adultosDisponibles">0</span>
+    </p>
 
   </div>
+
+
+  <!-- NIÑOS -->
+  <div class="grupo-invitados" id="grupoNinos">
+
+    <p class="tipo-invitado">Niños</p>
+
+    <div class="contador-invitados">
+      <button
+        type="button"
+        class="btn-cantidad"
+        onclick="cambiarNinos(-1)">
+        −
+      </button>
+
+      <span id="cantidadNinos">0</span>
+
+      <button
+        type="button"
+        class="btn-cantidad"
+        onclick="cambiarNinos(1)">
+        +
+      </button>
+    </div>
+
+    <p class="pases-disponibles">
+      Disponibles:
+      <span id="ninosDisponibles">0</span>
+    </p>
+
+  </div>
+
+
+  <!-- TOTAL -->
+  <div class="total-confirmacion">
+
+    <p class="pases-disponibles">
+      Total de pases disponibles:
+      <span id="pasesDisponibles">0</span>
+    </p>
+
+    <p class="total-asistentes">
+      Total a confirmar:
+      <strong id="totalConfirmar">0</strong>
+    </p>
+
+  </div>
+
+</div>
+
+
+  
 
 
   <!-- CONFIRMAR -->
@@ -2906,8 +3017,12 @@ const id = params.get("id");
 
 let invitado = null;
 let pasesMaximos = 0;
-let cantidadSeleccionada = 0;
+//let cantidadSeleccionada = 0;
+let cantidadAdultos = 0;
+let cantidadNinos = 0;
 
+  
+/* Eliminar esto
 async function cargarInvitado() {
 
   if (!id) {
@@ -2949,6 +3064,24 @@ async function cargarInvitado() {
     document.getElementById("pasesDisponibles").textContent =
       pasesMaximos;
 
+            document.getElementById("adultosDisponibles").textContent =
+          invitado.adultos || 0;
+        
+        document.getElementById("ninosDisponibles").textContent =
+          invitado.ninos || 0;
+        
+        document.getElementById("cantidadAdultos").textContent =
+          cantidadAdultos;
+        
+        document.getElementById("cantidadNinos").textContent =
+          cantidadNinos;
+        
+        actualizarTotal();
+        
+        if ((invitado.ninos || 0) === 0) {
+          document.getElementById("grupoNinos").style.display = "none";
+        }
+
     document.getElementById("cantidadInvitados").textContent =
       cantidadSeleccionada;
 
@@ -2964,8 +3097,52 @@ async function cargarInvitado() {
   }
 }
 
-cargarInvitado();
+cargarInvitado();   */
 
+
+
+  function cambiarAdultos(cambio) {
+
+  const adultosMaximos = invitado.adultos || 0;
+  const nuevaCantidad = cantidadAdultos + cambio;
+
+  if (nuevaCantidad < 0) return;
+  if (nuevaCantidad > adultosMaximos) return;
+
+  cantidadAdultos = nuevaCantidad;
+
+  document.getElementById("cantidadAdultos").textContent =
+    cantidadAdultos;
+
+  actualizarTotal();
+}
+
+
+function cambiarNinos(cambio) {
+
+  const ninosMaximos = invitado.ninos || 0;
+  const nuevaCantidad = cantidadNinos + cambio;
+
+  if (nuevaCantidad < 0) return;
+  if (nuevaCantidad > ninosMaximos) return;
+
+  cantidadNinos = nuevaCantidad;
+
+  document.getElementById("cantidadNinos").textContent =
+    cantidadNinos;
+
+  actualizarTotal();
+}
+
+
+function actualizarTotal() {
+
+  const total =
+    cantidadAdultos + cantidadNinos;
+
+  document.getElementById("totalConfirmar").textContent =
+    total;
+}
 
 
 
@@ -3036,7 +3213,7 @@ cargarInvitado();
     alert("Aquí irá Firebase 😏");
   }
 
-  function cambiarInvitados(cambio) {
+ /* function cambiarInvitados(cambio) {
 
   const nuevaCantidad =
     cantidadSeleccionada + cambio;
@@ -3049,10 +3226,72 @@ cargarInvitado();
   cantidadSeleccionada = nuevaCantidad;
   document.getElementById("cantidadInvitados").textContent =
     cantidadSeleccionada;
+}  */
+
+
+
+//Se cambio para fueran tanto adultos como niños
+
+  function cambiarAdultos(cambio) {
+
+  const adultosMaximos = invitado.adultos || 0;
+
+  const nuevaCantidad =
+    cantidadAdultos + cambio;
+
+  if (nuevaCantidad < 0) {
+    return;
+  }
+
+  if (nuevaCantidad > adultosMaximos) {
+    return;
+  }
+
+  cantidadAdultos = nuevaCantidad;
+
+  document.getElementById("cantidadAdultos").textContent =
+    cantidadAdultos;
+
+  actualizarTotal();
 }
 
 
+function cambiarNinos(cambio) {
 
+  const ninosMaximos = invitado.ninos || 0;
+
+  const nuevaCantidad =
+    cantidadNinos + cambio;
+
+  if (nuevaCantidad < 0) {
+    return;
+  }
+
+  if (nuevaCantidad > ninosMaximos) {
+    return;
+  }
+
+  cantidadNinos = nuevaCantidad;
+
+  document.getElementById("cantidadNinos").textContent =
+    cantidadNinos;
+
+  actualizarTotal();
+}
+
+
+function actualizarTotal() {
+
+  const total =
+    cantidadAdultos + cantidadNinos;
+
+  document.getElementById("totalConfirmar").textContent =
+    total;
+}
+  
+
+
+//Esto es de la foto de pareja
   const fotos = document.querySelectorAll(".foto-pareja");
 
   const observer = new IntersectionObserver((entries) => {
