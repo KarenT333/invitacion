@@ -2865,7 +2865,7 @@
   document.querySelector(".derecha").style.transform = "translateZ(0)";
 });
   
-  const invitados = {
+ /* const invitados = {
     "a1": {
     nombre: "Ana López",
     pases: 2
@@ -2898,7 +2898,79 @@ document.getElementById("nombre").textContent = nombre;
 document.getElementById("confirmacionNombre").textContent = nombre;
 document.getElementById("pasesDisponibles").textContent = pasesMaximos;
 document.getElementById("cantidadInvitados").textContent =
-  cantidadSeleccionada;
+  cantidadSeleccionada;  */
+
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+let invitado = null;
+let pasesMaximos = 0;
+let cantidadSeleccionada = 0;
+
+async function cargarInvitado() {
+
+  if (!id) {
+    console.error("No se recibió ningún ID en la URL.");
+    return;
+  }
+
+  try {
+
+    const documento = await db
+      .collection("Invitados")
+      .doc(id)
+      .get();
+
+    if (!documento.exists) {
+      console.error("No existe una invitación con el ID:", id);
+      return;
+    }
+
+    invitado = documento.data();
+
+    console.log("Invitación cargada:", invitado);
+
+    const nombre = invitado.Nombre || "Invitado";
+
+    pasesMaximos =
+      (invitado.adultos || 0) +
+      (invitado.ninos || 0);
+
+    document.getElementById("saludo").innerHTML =
+      "Esta velada invoca la presencia de<br><span id='nombre-temporal'>" +
+      nombre +
+      "</span>";
+
+    document.getElementById("nombre").textContent = nombre;
+
+    document.getElementById("confirmacionNombre").textContent = nombre;
+
+    document.getElementById("pasesDisponibles").textContent =
+      pasesMaximos;
+
+    document.getElementById("cantidadInvitados").textContent =
+      cantidadSeleccionada;
+
+    console.log("Nombre:", nombre);
+    console.log("Adultos:", invitado.adultos);
+    console.log("Niños:", invitado.ninos);
+    console.log("Pases disponibles:", pasesMaximos);
+
+  } catch (error) {
+
+    console.error("Error al cargar la invitación:", error);
+
+  }
+}
+
+cargarInvitado();
+
+
+
+
+
+  
   
 
   function abrir(){
