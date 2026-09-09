@@ -2836,8 +2836,30 @@
   Ir a confirmación
 </button>
 
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  
 <script>
 
+     const firebaseConfig = {
+        apiKey: "AIzaSyCi1K9l3_mdZSubIdi5GgK2sY52jcHjjcA",
+        authDomain: "boda-fernando-karen.firebaseapp.com",
+        projectId: "boda-fernando-karen",
+        storageBucket: "boda-fernando-karen.firebasestorage.app",
+        messagingSenderId: "324552344990",
+        appId: "1:324552344990:web:4141722109dde8b72b428f",
+        measurementId: "G-CQ0243QN2L"
+      };
+    
+      firebase.initializeApp(firebaseConfig);
+    
+      const db = firebase.firestore();
+    
+
+
+  
   window.addEventListener("load", () => {
   document.querySelector(".izquierda").style.transform = "translateZ(0)";
   document.querySelector(".derecha").style.transform = "translateZ(0)";
