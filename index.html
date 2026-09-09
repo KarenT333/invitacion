@@ -3209,9 +3209,75 @@ function actualizarTotal() {
     });
   }
 
+/* Se cambió la funcion por algo mas completo
+  
   function confirmar(){
     alert("Aquí irá Firebase 😏");
+  }   */
+
+
+//Funcion de confirmar
+  
+async function confirmar() {
+
+  if (!invitado) {
+    alert("No se pudo cargar la información de la invitación.");
+    return;
   }
+
+  // Verificar si ya confirmó
+  if (invitado.confirmado === true) {
+    alert("No se puede confirmar nuevamente. Esta invitación ya ha sido confirmada. Favor de comunicarse por WhatsApp.");
+    return;
+  }
+
+  const total =
+    cantidadAdultos + cantidadNinos;
+
+  if (total === 0) {
+    alert("Por favor selecciona al menos una persona que asistirá.");
+    return;
+  }
+
+  try {
+
+    await db
+      .collection("Invitados")
+      .doc(id)
+      .update({
+
+        confirmado: true,
+        AsisteA: cantidadAdultos,
+        AsisteN: cantidadNinos
+
+      });
+
+    // Actualizar también la información local
+    invitado.confirmado = true;
+    invitado.AsisteA = cantidadAdultos;
+    invitado.AsisteN = cantidadNinos;
+
+    alert("¡Gracias por confirmar tu asistencia!");
+
+    console.log("Confirmación guardada:", {
+      id: id,
+      AsisteA: cantidadAdultos,
+      AsisteN: cantidadNinos
+    });
+
+  } catch (error) {
+
+    console.error(
+      "Error al guardar la confirmación:",
+      error
+    );
+
+    alert(
+      "Ocurrió un problema al guardar tu confirmación. Intenta nuevamente."
+    );
+  }
+}
+  
 
  /* function cambiarInvitados(cambio) {
 
