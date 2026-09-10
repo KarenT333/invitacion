@@ -1006,9 +1006,11 @@
 
 /* Esta parte esimportante para novios*/
     .nombres-novios {
-      position: relative;
-      z-index: 20;
-   margin-top: 18px;
+      position: absolute;
+  z-index: 5;
+    top: 78%;
+  left: 0;
+  width: 100%;
 
   font-family: "Great Vibes", cursive;
   font-size: clamp(3rem, 5vw, 5rem);
@@ -1036,9 +1038,9 @@
     @media (max-width: 600px){
 
   .nombres-novios {
-    font-size: clamp(3.5rem, 11vw, 6rem);
+    top: 78%;
+    font-size: clamp(3rem, 10vw, 5rem);
     letter-spacing: 3px;
-
   }
 
 }
