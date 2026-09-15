@@ -2360,7 +2360,7 @@
 
 <body>
 
-  
+  <audio id="musicaBoda" loop></audio>
   
 <!-- ENTRADA -->
 <section id="inicio" class="pantalla">
@@ -3311,14 +3311,34 @@ function actualizarTotal() {
 }
 
 
+//Aqui van las canciones de la invitacion dela boda
+const canciones = [
+  "canciones/cancion1.mp3",
+  "canciones/cancion2.mp3"
+];
 
-
+const musica = document.getElementById("musicaBoda");
   
   
 
   function abrir(){
   const izquierda = document.querySelector(".izquierda");
   const derecha = document.querySelector(".derecha");
+
+    //Elegir cancion al azar
+    const indice = Math.floor(Math.random() * canciones.length);
+    musica.src = canciones[indice];
+
+    //reproducir musica
+    musica.volume = 0.45;
+    musica.play().catch(error => {
+      console.log("No se pudo reproducir la música:", error);
+    });
+
+
+
+
+    
 
      // Ocultar botón al instante
   document.querySelector("#inicio button").style.opacity = "0";
